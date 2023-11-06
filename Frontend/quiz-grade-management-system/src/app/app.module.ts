@@ -7,6 +7,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { SignupPageComponent } from './signup-page/signup-page.component';
+import { TestComponentComponent } from './first-page/test-component.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
     AppComponent,
     LoginPageComponent,
     SignupPageComponent,
+    TestComponentComponent,
 
   ],
   imports: [
