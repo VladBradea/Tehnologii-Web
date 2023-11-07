@@ -175,4 +175,13 @@
   .sidebar-menu .material-icons {
     margin-right: 10px;
   }
-  
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url('media/background.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    margin: 0;
+    padding: 0;
+  }
