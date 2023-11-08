@@ -1,14 +1,9 @@
 package com.quizGrade.quizGrade.classes;
 
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
-
-@Entity
 @Table(name = "grades")
-@Getter
-@Setter
+@Entity
 public class Grade {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,4 +11,11 @@ public class Grade {
     @Column
     private int value;
 
+    public Grade(int value){
+        this.value = value;
+    }
+
+    public Grade() {
+
+    }
 }

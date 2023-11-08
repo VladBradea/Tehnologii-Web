@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin
-@SpringBootApplication(scanBasePackages = "com.quizGrade.quizGrade")
+@SpringBootApplication
 public class QuizGradeApplication {
 
 	public static void main(String[] args) {

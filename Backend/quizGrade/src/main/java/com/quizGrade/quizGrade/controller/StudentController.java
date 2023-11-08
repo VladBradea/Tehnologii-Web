@@ -1,7 +1,7 @@
-package com.quizGrade.quizGrade.controllers;
+package com.quizGrade.quizGrade.controller;
 
 import com.quizGrade.quizGrade.classes.Student;
-import com.quizGrade.quizGrade.services.StudentService;
+import com.quizGrade.quizGrade.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +14,6 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @Autowired
-    public StudentController(StudentService studentService) {
-        this.studentService = studentService;
-    }
 
     @PostMapping
     public ResponseEntity<?> createStudent(@RequestBody Student student) {

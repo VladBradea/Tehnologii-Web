@@ -1,12 +1,12 @@
 package com.quizGrade.quizGrade.classes;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
+@Table(name = "exercises")
 @Entity
-@Table(name =  "exercises")
 public class Exercise {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column
     private String text;
@@ -21,4 +21,15 @@ public class Exercise {
     @Column
     private String answer;
 
+    public Exercise(String text, String option1,String option2,String option3,String option4){
+        this.text = text;
+        this.option1 = option1;
+        this.option2 = option2;
+        this.option3 = option3;
+        this.option4 = option4;
+    }
+
+    public Exercise() {
+
+    }
 }

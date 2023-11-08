@@ -1,16 +1,10 @@
 package com.quizGrade.quizGrade.classes;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
-
-
-@Entity
 @Table(name = "students")
-@Getter
-@Setter
+@Entity
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,11 +15,13 @@ public class Student {
     private String firstName;
     @Column
     private String lastName;
-
     public Student(String email, String firstName, String lastName) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
+    public Student() {
+
+    }
 }
