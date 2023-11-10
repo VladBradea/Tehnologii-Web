@@ -32,14 +32,15 @@ public class StudentService {
         return studentRepository.findByEmail(email);
     }
 
-    public Student updateStudent(long id, Student student) throws NotFoundException {
-        Student updateStudent = studentRepository.findById(id).orElseThrow(() ->
-                new NotFoundException("Student not found with id: " + id));
-        updateStudent.setId(student.getId());
-        updateStudent.setEmail(student.getEmail());
-        updateStudent.setFirstName(student.getFirstName());
-        updateStudent.setLastName(student.getLastName());
-        return updateStudent;
+    public Student updateStudent(Long id, Student newStudent){
+        Student student = studentRepository.findById(id).orElse(null);
+        if (student == null){
+            return null;
+        }
+        student.setEmail(newStudent.getEmail());
+        student.setFirstName(newStudent.getFirstName());
+        student.setLastName(newStudent.getLastName());
+        return student;
     }
 
     public Student patchStudent(long id, Student student) throws NotFoundException {
@@ -55,5 +56,23 @@ public class StudentService {
             patchStudent.setLastName(student.getLastName());
         }
         return patchStudent;
+    }
+
+    public boolean deleteStudentByEmail(String email) {
+        Optional<Student> student = studentRepository.findByEmail(email);
+        if(student.isPresent()) {
+            studentRepository.deleteById(student.get().getId());
+            return true;
+        }
+        return false;
+    }
+
+    public boolean deleteStudentById(long id) {
+        Optional<Student> student = studentRepository.findById(id);
+        if (student.isPresent()) {
+            studentRepository.deleteById(student.get().getId());
+            return true;
+        }
+        return false;
     }
 }
