@@ -58,18 +58,18 @@ public class StudentService {
         return patchStudent;
     }
 
-    public boolean deleteStudentByEmail(String email) {
-        Optional<Student> student = studentRepository.findByEmail(email);
-        if(student.isPresent()) {
+    public boolean deleteStudentById(long id) {
+        Optional<Student> student = studentRepository.findById(id);
+        if (student.isPresent()) {
             studentRepository.deleteById(student.get().getId());
             return true;
         }
         return false;
     }
 
-    public boolean deleteStudentById(long id) {
-        Optional<Student> student = studentRepository.findById(id);
-        if (student.isPresent()) {
+    public boolean deleteStudentByEmail(String email) {
+        Optional<Student> student = studentRepository.findByEmail(email);
+        if(student.isPresent()) {
             studentRepository.deleteById(student.get().getId());
             return true;
         }
