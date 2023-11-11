@@ -1,6 +1,7 @@
 package com.quizGrade.quizGrade.controller;
 
 import com.quizGrade.quizGrade.classes.Student;
+import com.quizGrade.quizGrade.exceptions.IncompleteStudentException;
 import com.quizGrade.quizGrade.exceptions.NotFoundException;
 import com.quizGrade.quizGrade.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,17 +56,17 @@ public class StudentController {
         }
     }
 
-    @PutMapping("{id}")
-    public ResponseEntity<?> updateStudent(@PathVariable("id") long id, @RequestBody Student student) {
-        try {
-            Student student1 = studentService.updateStudent(id, student);
-            return new ResponseEntity<>(student1, HttpStatus.OK);
-        } catch (NotFoundException e) {
+    @PutMapping("{id}") // DOESN'T WORK PROPERLY
+    public ResponseEntity<?> updateStudent(@PathVariable("id") Long id, @RequestBody Student student){
+        try{
+            Student updateStudent = studentService.updateStudent(id, student);
+            return new ResponseEntity<>(updateStudent, HttpStatus.OK);
+        } catch(NotFoundException | IncompleteStudentException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 
-    @PatchMapping("{id}")
+    @PatchMapping("{id}") //DOESN'T WORK PROPERLY
     public ResponseEntity<?> patchStudent(@PathVariable("id") long id, @RequestBody Student student) {
         try {
             Student student1 = studentService.patchStudent(id, student);
@@ -73,6 +74,14 @@ public class StudentController {
         } catch (NotFoundException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
+    }
+
+    @DeleteMapping("id/{id}")
+    public ResponseEntity<HttpStatus> deleteStudentById(@PathVariable("id") long id) {
+        if (studentService.deleteStudentById(id)) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @DeleteMapping("email/{email}")
@@ -83,11 +92,4 @@ public class StudentController {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    @DeleteMapping("id/{id}")
-    public ResponseEntity<HttpStatus> deleteStudentById(@PathVariable("id") long id) {
-        if (studentService.deleteStudentById(id)) {
-            return new ResponseEntity<>(HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
 }
