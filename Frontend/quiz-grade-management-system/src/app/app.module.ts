@@ -8,6 +8,9 @@ import { MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { TestComponentComponent } from './first-page/test-component.component';
+import { TeacherPageComponent } from './teacher-page/teacher-page.component';
+import { TeacherSidemenuComponent } from './teacher-sidemenu/teacher-sidemenu.component';
+import { ExercisesPageComponent } from './exercises-page/exercises-page.component';
 
 
 @NgModule({
@@ -16,6 +19,9 @@ import { TestComponentComponent } from './first-page/test-component.component';
     LoginPageComponent,
     SignupPageComponent,
     TestComponentComponent,
+    TeacherPageComponent,
+    TeacherSidemenuComponent,
+    ExercisesPageComponent,
 
   ],
   imports: [
