@@ -5,6 +5,8 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
 import { TestComponentComponent } from './first-page/test-component.component';
 import { TeacherPageComponent } from './teacher-page/teacher-page.component';
 import { ExercisesPageComponent } from './exercises-page/exercises-page.component';
+import { ExamsPageComponent } from './exams-page/exams-page.component';
+import { StudentsPageComponent } from './students-page/students-page.component';
 
 const routes: Routes = [
   { path: 'login-page', component: LoginPageComponent},
@@ -12,7 +14,10 @@ const routes: Routes = [
   { path: 'quizGrade', component: TestComponentComponent},
   {path: '', redirectTo: '/quizGrade', pathMatch: 'full'},
   { path: 'teacher-page', component: TeacherPageComponent},
-  { path: 'exercises-page', component: ExercisesPageComponent}
+  { path: 'exercise-page', component: ExercisesPageComponent},
+  { path: 'exam-page', component: ExamsPageComponent},
+  { path: 'students-page', component: StudentsPageComponent}
+  
 ];
 
 @NgModule({

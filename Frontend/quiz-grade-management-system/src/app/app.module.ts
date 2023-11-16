@@ -11,6 +11,8 @@ import { TestComponentComponent } from './first-page/test-component.component';
 import { TeacherPageComponent } from './teacher-page/teacher-page.component';
 import { TeacherSidemenuComponent } from './teacher-sidemenu/teacher-sidemenu.component';
 import { ExercisesPageComponent } from './exercises-page/exercises-page.component';
+import { ExamsPageComponent } from './exams-page/exams-page.component';
+import { StudentsPageComponent } from './students-page/students-page.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { ExercisesPageComponent } from './exercises-page/exercises-page.componen
     TeacherPageComponent,
     TeacherSidemenuComponent,
     ExercisesPageComponent,
+    ExamsPageComponent,
+    StudentsPageComponent,
 
   ],
   imports: [
