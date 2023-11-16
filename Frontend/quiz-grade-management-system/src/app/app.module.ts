@@ -13,6 +13,7 @@ import { TeacherSidemenuComponent } from './teacher-sidemenu/teacher-sidemenu.co
 import { ExercisesPageComponent } from './exercises-page/exercises-page.component';
 import { ExamsPageComponent } from './exams-page/exams-page.component';
 import { StudentsPageComponent } from './students-page/students-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { StudentsPageComponent } from './students-page/students-page.component';
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule
     
   ],
   providers: [],
