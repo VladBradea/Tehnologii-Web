@@ -43,6 +43,20 @@ public class ExerciseController {
         }
     }
 
+    @PutMapping("id/{id}")
+    public ResponseEntity<Exercise> updateExercise(@PathVariable("id") Long id, @RequestBody Exercise exercise) {
+        return exerciseService.patchExercise(exercise, id)
+                .map(patchedExercise -> new ResponseEntity<>(patchedExercise, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @PatchMapping("id/{id}")
+    public ResponseEntity<Exercise> patchStudent(@PathVariable("id") Long id, @RequestBody Exercise exercise) {
+        return exerciseService.patchExercise(exercise, id)
+                .map(patchedExercise -> new ResponseEntity<>(patchedExercise, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
     @DeleteMapping("id/{id}")
     public ResponseEntity<HttpStatus> deleteExerciseById(@PathVariable("id") long id) {
         if (exerciseService.deleteExerciseById(id)) {
