@@ -1,4 +1,3 @@
-/* Reset default margin and padding */
 * {
   margin: 0;
   padding: 0;
@@ -15,52 +14,56 @@ body {
   margin: 0;
   padding: 0;
 }
-  
-
 
 .openai-header {
-  background-color: #1e1e1e;
+  background-color: transparent;
   color: white;
   padding: 10px 0;
   display: flex;
-  justify-content: space-between; /* Align items to the left and right */
+  justify-content: space-between;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
 }
 
 .openai-header nav ul {
   list-style: none;
   display: flex;
-  justify-content: space-between; /* Align items to the left */
-  align-items: center;
-}
-.openai-header .nav-menu {
-  list-style: none;
-  display: flex;
-  justify-content: space-between; /* Align items to the left and right */
   align-items: center;
 }
 
-.openai-header .nav-menu .right{
-  margin-left: auto;
-}
-.openai-header nav ul li {
-  display: inline;
-  margin-right: 20px;
+.openai-header .nav-menu {
+  list-style: none;
+  display: flex;
 }
 
 .openai-header nav a {
   text-decoration: none;
   color: white;
+  border: 1px solid white;
+  padding: 10px 20px; /* Increase padding for a larger button */
+  border-radius: 5px;
+  background-color: #89b989;
+  margin-right: 15px; /* Increase margin for additional spacing */
 }
 
+.openai-header .nav-menu li 
+{
+  margin-top: 10px;
+  margin-left: 15px; /* Increase margin for additional spacing between buttons */
+}
+
+.openai-header .nav-menu .spacer{
+  width: 1000px;
+}
 .openai-header nav a:hover {
-  text-decoration: underline;
+  background-color: #32CD32;
+  color: #1e1e1e;
 }
-
 
 .openai-header .right {
-  margin-left: auto;
-  text-align: right;
+  margin-right: 25px;
 }
 
 .openai-footer {
@@ -72,6 +75,7 @@ body {
   bottom: 0;
   width: 100%;
 }
+
 
 /* Animated background */
 .animated-background {
@@ -97,13 +101,6 @@ body {
       background-position: 0% 50%;
   }
 }
-
-.openai-header {
-  /* Header styles */
-  position: relative;
-  z-index: 1; /* Keep the header on top */
-}
-
 
 .content-container {
   background-color: #e9010100; /* Gray background color */
