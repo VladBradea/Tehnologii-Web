@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { FormsModule } from '@angular/forms';
 import { StudentDialogComponent } from './student-dialog/student-dialog.component';
+import { ExerciseDialogComponent } from './exercise-dialog/exercise-dialog.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { StudentDialogComponent } from './student-dialog/student-dialog.componen
     ExamsPageComponent,
     StudentsPageComponent,
     StudentDialogComponent,
+    ExerciseDialogComponent,
 
 
   ],

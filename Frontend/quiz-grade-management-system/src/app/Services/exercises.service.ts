@@ -28,4 +28,12 @@ export class ExercisesService {
     return this.http.delete<void>(`${this.exercisesUrl}id/${exerciseId}`);
   }
 
+  public updateExercise(exercise: Exercise): Observable<Exercise> {
+    return this.http.put<Exercise>(`${this.exercisesUrl}id/${exercise.id}`, exercise);
+  }
+
+  public patchExercise(id: number,exercise: Exercise): Observable<Exercise> {
+    return this.http.patch<Exercise>(`${this.exercisesUrl}id/${exercise.id}`, exercise);
+  }
+
 }

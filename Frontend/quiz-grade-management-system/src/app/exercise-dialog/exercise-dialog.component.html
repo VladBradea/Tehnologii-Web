@@ -1,0 +1,25 @@
+<div mat-dialog-content>
+  <form>
+    <label for="text">Text:</label>
+    <input type="text" id="text" [(ngModel)]="data.text" name="text" required>
+
+    <label for="option1">Answer:</label>
+    <input type="text" id="option1" [(ngModel)]="data.option1" name="option1" required>
+
+    <label for="option2">Answer:</label>
+    <input type="text" id="option2" [(ngModel)]="data.option2" name="option2" required>
+
+    <label for="option3">Answer:</label>
+    <input type="text" id="option3" [(ngModel)]="data.option3" name="option3" required>
+
+    <label for="option4">Answer:</label>
+    <input type="text" id="option4" [(ngModel)]="data.option4" name="option4" required>
+
+    <label for="answer">Correct answer:</label>
+    <input type="text" id="answer" [(ngModel)]="data.answer" name="answer" required>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>

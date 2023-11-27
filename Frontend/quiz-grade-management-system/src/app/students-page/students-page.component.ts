@@ -75,4 +75,26 @@ export class StudentsPageComponent implements OnInit{
       (student.firstName.toLowerCase() + ' ' + student.lastName.toLowerCase()).includes(this.searchText.toLowerCase())
     );
   }
+
+  addStudent(): void {
+    const dialogRef = this.dialog.open(StudentDialogComponent, {
+      width: '600px',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.studentService.createStudent(result).subscribe(
+          newStudent => {
+            this.allStudents.push(newStudent);
+            this.students = [...this.allStudents];
+            console.log('Student added successfully:', newStudent);
+          },
+          (error: HttpErrorResponse) => {
+            console.error('Error adding student:', error.message);
+          }
+        );
+      }
+    });
+  }
 }

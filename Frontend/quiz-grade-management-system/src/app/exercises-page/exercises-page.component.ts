@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Exercise } from '../Classes/Exercise';
 import { ExercisesService } from '../Services/exercises.service';
 import { HttpErrorResponse, HttpRequest, HttpResponse } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { ExerciseDialogComponent } from '../exercise-dialog/exercise-dialog.component';
 
 @Component({
   selector: 'app-exercises-page',
@@ -14,7 +16,8 @@ export class ExercisesPageComponent implements OnInit{
    allExercises: Exercise[]= [];
    searchText: string = '';
 
-  constructor(private exercisesService: ExercisesService){}
+  constructor(private exercisesService: ExercisesService,
+    public dialog: MatDialog){}
 
   ngOnInit() {
     this.getExercises();
@@ -51,9 +54,48 @@ export class ExercisesPageComponent implements OnInit{
   }
   
 
-    editExercise(_t18: Exercise) {
-    throw new Error('Method not implemented.');
-    }
-  
+  editExercise(exercise: Exercise): void {
+    const dialogRef = this.dialog.open(ExerciseDialogComponent, {
+      width: '600px',
+      data: { ...exercise }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.exercisesService.patchExercise(result.id, result).subscribe(
+          updatedExercise => {
+            const index = this.exercises.findIndex(e => e.id === updatedExercise.id);
+            this.exercises[index] = updatedExercise;
+            console.log('Exercise edited successfully:', updatedExercise);
+          },
+          (error: HttpErrorResponse) => {
+            console.error('Error updating exercise:', error.message);
+          }
+        );
+      }
+    });
+  }
+
+  addExercise(): void {
+    const dialogRef = this.dialog.open(ExerciseDialogComponent, {
+      width: '600px',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.exercisesService.createExercise(result).subscribe(
+          newExercise => {
+            this.allExercises.push(newExercise);
+            this.exercises = [...this.allExercises];
+            console.log('Exercise added successfully:', newExercise);
+          },
+          (error: HttpErrorResponse) => {
+            console.error('Error adding exercise:', error.message);
+          }
+        );
+      }
+    });
+  }
 
 }

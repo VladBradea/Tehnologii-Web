@@ -1,8 +1,8 @@
 <!--<app-teacher-page></app-teacher-page>-->
 <div>
-    <input type="text" placeholder="Search" [(ngModel)]="searchText" (input)="filterExercises()" />
-  </div>
-  
+  <input type="text" placeholder="Search" [(ngModel)]="searchText" (input)="filterExercises()" />
+  <button mat-raised-button color="primary" (click)="addExercise()">Add Exercise</button>
+</div>
   <table>
     <thead>
       <tr>

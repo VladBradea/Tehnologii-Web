@@ -1,7 +1,7 @@
 <div>
-    <input type="text" placeholder="Search" [(ngModel)]="searchText" (input)="filterStudents()" />
-  </div>
-  
+  <input type="text" placeholder="Search" [(ngModel)]="searchText" (input)="filterStudents()" />
+  <button mat-raised-button color="primary" (click)="addStudent()">Add Student</button>
+</div>
   <table>
     <thead>
       <tr>
