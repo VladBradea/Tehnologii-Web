@@ -57,14 +57,14 @@ public class StudentController {
     }
 
     @PutMapping("id/{id}")
-    public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student student) {
+    public ResponseEntity<Student> updateStudent(@PathVariable("id") Long id, @RequestBody Student student) {
         student.setId(id);
         Student updatedStudent = studentService.updateStudent(student);
         return new ResponseEntity<>(updatedStudent, HttpStatus.OK);
     }
 
     @PatchMapping("id/{id}")
-    public ResponseEntity<Student> patchStudent(@PathVariable Long id, @RequestBody Student student) {
+    public ResponseEntity<Student> patchStudent(@PathVariable("id") Long id, @RequestBody Student student) {
         return studentService.patchStudent(student, id)
                 .map(patchedStudent -> new ResponseEntity<>(patchedStudent, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));

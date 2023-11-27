@@ -43,6 +43,20 @@ public class ExamController {
         }
     }
 
+    @PutMapping("id/{id}")
+    public ResponseEntity<Exam> updateExam(@PathVariable("id") Long id, @RequestBody Exam exam) {
+        exam.setId(id);
+        Exam updateExam = examService.updateExam(exam);
+        return new ResponseEntity<>(updateExam, HttpStatus.OK);
+    }
+
+    @PatchMapping("id/{id}")
+    public ResponseEntity<Exam> patchExam(@PathVariable("id") Long id, @RequestBody Exam exam) {
+        return examService.patchExam(exam, id)
+                .map(patchedExam -> new ResponseEntity<>(patchedExam, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
     @DeleteMapping("id/{id}")
     public ResponseEntity<HttpStatus> deleteExamById (@PathVariable("id") long id) {
         if (examService.deleteExamById(id)) {

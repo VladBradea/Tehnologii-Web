@@ -26,6 +26,26 @@ public class ExamService {
         return examRepository.findById(id);
     }
 
+    public Exam updateExam(Exam exam) {
+        return examRepository.save(exam);
+    }
+
+    public Optional<Exam> patchExam(Exam  exam, Long id) {
+        return examRepository.findById(id)
+                .map(existingExam -> {
+                    if (exam.getCourse() != null) {
+                        existingExam.setCourse(exam.getCourse());
+                    }
+                    if (exam.getExamDate() != null) {
+                        existingExam.setExamDate(exam.getExamDate());
+                    }
+                    if (exam.getTeacher() != null) {
+                        existingExam.setTeacher(exam.getTeacher());
+                    }
+                    return examRepository.save(existingExam);
+                });
+    }
+
     public boolean deleteExamById (long id) {
         Optional<Exam> exam = examRepository.findById(id);
         if (exam.isPresent()) {
