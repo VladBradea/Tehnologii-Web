@@ -56,24 +56,18 @@ public class StudentController {
         }
     }
 
-    @PutMapping("{id}") // DOESN'T WORK PROPERLY
-    public ResponseEntity<?> updateStudent(@PathVariable("id") Long id, @RequestBody Student student){
-        try{
-            Student updateStudent = studentService.updateStudent(id, student);
-            return new ResponseEntity<>(updateStudent, HttpStatus.OK);
-        } catch(NotFoundException | IncompleteStudentException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        }
+    @PutMapping("id/{id}")
+    public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student student) {
+        student.setId(id);
+        Student updatedStudent = studentService.updateStudent(student);
+        return new ResponseEntity<>(updatedStudent, HttpStatus.OK);
     }
 
-    @PatchMapping("{id}") //DOESN'T WORK PROPERLY
-    public ResponseEntity<?> patchStudent(@PathVariable("id") long id, @RequestBody Student student) {
-        try {
-            Student student1 = studentService.patchStudent(id, student);
-            return new ResponseEntity<>(student1, HttpStatus.OK);
-        } catch (NotFoundException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        }
+    @PatchMapping("id/{id}")
+    public ResponseEntity<Student> patchStudent(@PathVariable Long id, @RequestBody Student student) {
+        return studentService.patchStudent(student, id)
+                .map(patchedStudent -> new ResponseEntity<>(patchedStudent, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @DeleteMapping("id/{id}")

@@ -15,6 +15,9 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
+    @Autowired
+    private GradeService gradeService;
+
     public Student createStudent(Student student) {
         studentRepository.save(student);
         return student;
@@ -32,35 +35,31 @@ public class StudentService {
         return studentRepository.findByEmail(email);
     }
 
-    public Student updateStudent(Long id, Student newStudent){
-        Student student = studentRepository.findById(id).orElse(null);
-        if (student == null){
-            return null;
-        }
-        student.setEmail(newStudent.getEmail());
-        student.setFirstName(newStudent.getFirstName());
-        student.setLastName(newStudent.getLastName());
-        return student;
+    public Student updateStudent(Student student) {
+        return studentRepository.save(student);
     }
 
-    public Student patchStudent(long id, Student student) throws NotFoundException {
-        Student patchStudent = studentRepository.findById(id).orElseThrow(() ->
-                new NotFoundException("Student not found with id: " + id));
-        if (student.getEmail() != null) {
-            patchStudent.setEmail(student.getEmail());
-        }
-        if (student.getFirstName() != null) {
-            patchStudent.setFirstName(student.getFirstName());
-        }
-        if (student.getLastName() != null) {
-            patchStudent.setLastName(student.getLastName());
-        }
-        return patchStudent;
+    public Optional<Student> patchStudent(Student student, Long id) {
+        return studentRepository.findById(id)
+                .map(existingStudent -> {
+                    if (student.getEmail() != null) {
+                        existingStudent.setEmail(student.getEmail());
+                    }
+                    if (student.getFirstName() != null) {
+                        existingStudent.setFirstName(student.getFirstName());
+                    }
+                    if (student.getLastName() != null) {
+                        existingStudent.setLastName(student.getLastName());
+                    }
+
+                    return studentRepository.save(existingStudent);
+                });
     }
 
     public boolean deleteStudentById(long id) {
         Optional<Student> student = studentRepository.findById(id);
         if (student.isPresent()) {
+            gradeService.deleteGradeByStudentId(student.get().getId()); // delete all grades for this student
             studentRepository.deleteById(student.get().getId());
             return true;
         }
@@ -70,6 +69,7 @@ public class StudentService {
     public boolean deleteStudentByEmail(String email) {
         Optional<Student> student = studentRepository.findByEmail(email);
         if(student.isPresent()) {
+            gradeService.deleteGradeByStudentId(student.get().getId()); // delete all grades for this student
             studentRepository.deleteById(student.get().getId());
             return true;
         }
