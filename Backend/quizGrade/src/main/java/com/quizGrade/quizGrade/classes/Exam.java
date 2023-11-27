@@ -14,6 +14,8 @@ public class Exam {
     private long id;
     @Column
     private String course;
+    @Column
+    private String examDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "teacher_id")
@@ -22,12 +24,14 @@ public class Exam {
     @Nullable
     private Teacher teacher;
 
-    public Exam(String course){
+    public Exam(String course, String examDate){
         this.course = course;
+        this.examDate = examDate;
     }
 
-    public Exam(String course, Teacher teacher) {
+    public Exam(String course,String examDate, Teacher teacher) {
         this.course = course;
+        this.examDate = examDate;
         this.teacher = teacher;
     }
 
@@ -49,6 +53,14 @@ public class Exam {
 
     public void setCourse(String course) {
         this.course = course;
+    }
+
+    public String getExamDate() {
+        return examDate;
+    }
+
+    public void setExamDate(String examDate) {
+        this.examDate = examDate;
     }
 
     public Teacher getTeacher() {
