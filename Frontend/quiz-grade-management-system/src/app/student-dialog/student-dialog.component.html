@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Edit Student</h1>
+<div mat-dialog-content>
+  <form>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" [(ngModel)]="data.firstName" name="firstName" required>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" [(ngModel)]="data.lastName" name="lastName" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="data.email" name="email" required>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>

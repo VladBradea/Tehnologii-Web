@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Student } from '../Classes/Student';
 import { StudentService } from '../Services/student.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { StudentDialogComponent } from '../student-dialog/student-dialog.component';
 
 @Component({
   selector: 'app-students-page',
@@ -13,7 +15,8 @@ export class StudentsPageComponent implements OnInit{
   students: Student[] = [];
   searchText: string = '';
 
-  constructor(private studentService: StudentService) {}
+  constructor(private studentService: StudentService, 
+    public dialog: MatDialog) {}
 
   ngOnInit() {
     this.getStudents();
@@ -31,17 +34,33 @@ export class StudentsPageComponent implements OnInit{
     );
   }
 
-  editStudent(student: any) {
-    
+  editStudent(student: Student): void {
+    const dialogRef = this.dialog.open(StudentDialogComponent, {
+      width: '600px',
+      data: { ...student }
+    });
 
-    console.log('Edit:', student);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.studentService.patchStudent(result.id, result).subscribe(
+          updatedStudent => {
+            const index = this.students.findIndex(s => s.email === student.email);
+            this.students[index] = updatedStudent;
+            console.log('Student edited successfully:', updatedStudent);
+          },
+          (error: HttpErrorResponse) => {
+            console.error('Error updating student:', error.message);
+          }
+        );
+      }
+    });
   }
 
+
   deleteStudent(student: Student) {
-    const studentEmail = student.email; // Assuming email is the identifier for a student
+    const studentEmail = student.email;
     this.studentService.deleteStudentByEmail(studentEmail).subscribe(
       () => {
-        // Remove the deleted student from the displayed list
         this.students = this.students.filter(s => s.email !== studentEmail);
         console.log('Student deleted successfully.');
       },

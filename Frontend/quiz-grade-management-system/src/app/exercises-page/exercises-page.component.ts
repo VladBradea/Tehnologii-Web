@@ -9,7 +9,10 @@ import { HttpErrorResponse, HttpRequest, HttpResponse } from '@angular/common/ht
   styleUrls: ['./exercises-page.component.css']
 })
 export class ExercisesPageComponent implements OnInit{
+
    exercises: Exercise[] = [];
+   allExercises: Exercise[]= [];
+   searchText: string = '';
 
   constructor(private exercisesService: ExercisesService){}
 
@@ -20,7 +23,8 @@ export class ExercisesPageComponent implements OnInit{
   public getExercises(): void{
     this.exercisesService.getExercises().subscribe(
       (response: Exercise[])=>{
-        this.exercises = response;
+        this.allExercises = response;
+        this.exercises = [...this.allExercises];
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -28,5 +32,28 @@ export class ExercisesPageComponent implements OnInit{
     );
   }
 
+  filterExercises() {
+    this.exercises = this.allExercises.filter(exercise =>
+      (exercise.text.toLowerCase()).includes(this.searchText.toLowerCase())
+    );
+  }
+
+  deleteExercise(exerciseId: number) {
+    this.exercisesService.deleteExercise(exerciseId).subscribe(
+      () => {
+        this.exercises = this.exercises.filter(exercise => exercise.id !== exerciseId);
+        console.log('Exercise deleted successfully.');
+      },
+      (error: HttpErrorResponse) => {
+        console.error('Error deleting exercise:', error.message);
+      }
+    );
+  }
+  
+
+    editExercise(_t18: Exercise) {
+    throw new Error('Method not implemented.');
+    }
+  
 
 }

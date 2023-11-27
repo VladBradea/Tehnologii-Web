@@ -19,6 +19,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { FormsModule } from '@angular/forms';
+import { StudentDialogComponent } from './student-dialog/student-dialog.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { FormsModule } from '@angular/forms';
     ExercisesPageComponent,
     ExamsPageComponent,
     StudentsPageComponent,
+    StudentDialogComponent,
 
 
   ],

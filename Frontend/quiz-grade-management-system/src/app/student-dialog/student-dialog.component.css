@@ -1,0 +1,21 @@
+form {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr; 
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  input {
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .mat-dialog-content {
+    max-width: 400px; 
+  }
+  

@@ -1,5 +1,33 @@
 <!--<app-teacher-page></app-teacher-page>-->
-<div *ngFor="let exercise of exercises">
-<div>{{exercise.text}}</div>
-</div>
+<div>
+    <input type="text" placeholder="Search" [(ngModel)]="searchText" (input)="filterExercises()" />
+  </div>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Exercise text</th>
+        <th>Answer</th>
+        <th>Answer</th>
+        <th>Answer</th>
+        <th>Answer</th>
+        <th>Correct answer</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let exercise of exercises">
+        <td>{{ exercise.text }}</td>
+        <td>{{ exercise.option1 }}</td>
+        <td>{{ exercise.option2 }}</td>
+        <td>{{ exercise.option3 }}</td>
+        <td>{{ exercise.option4 }}</td>
+        <td>{{ exercise.answer }}</td>
+        <td>
+          <button (click)="editExercise(exercise)">Edit</button>
+          <button (click)="deleteExercise(exercise.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
