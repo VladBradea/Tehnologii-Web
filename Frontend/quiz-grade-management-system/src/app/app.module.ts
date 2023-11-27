@@ -14,6 +14,11 @@ import { ExercisesPageComponent } from './exercises-page/exercises-page.componen
 import { ExamsPageComponent } from './exams-page/exams-page.component';
 import { StudentsPageComponent } from './students-page/students-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,13 +33,19 @@ import { HttpClientModule } from '@angular/common/http';
     ExamsPageComponent,
     StudentsPageComponent,
 
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule
     
   ],
   providers: [],

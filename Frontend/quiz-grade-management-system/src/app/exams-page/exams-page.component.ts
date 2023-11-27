@@ -10,7 +10,8 @@ import { ExamService } from '../Services/exam.service';
 })
 export class ExamsPageComponent implements OnInit{
   exams: Exam[] = [];
-
+ 
+  
   constructor(private examService: ExamService){}
 
   ngOnInit() {
@@ -27,4 +28,9 @@ export class ExamsPageComponent implements OnInit{
       }
     );
   }
-}
+
+ 
+
+    
+  }
+
