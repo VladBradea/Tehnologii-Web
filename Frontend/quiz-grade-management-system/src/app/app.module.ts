@@ -21,6 +21,8 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { FormsModule } from '@angular/forms';
 import { StudentDialogComponent } from './student-dialog/student-dialog.component';
 import { ExerciseDialogComponent } from './exercise-dialog/exercise-dialog.component';
+import { StatisticsPageComponent } from './statistics-page/statistics-page.component';
+import { Chart } from 'chart.js';
 
 
 @NgModule({
@@ -36,6 +38,7 @@ import { ExerciseDialogComponent } from './exercise-dialog/exercise-dialog.compo
     StudentsPageComponent,
     StudentDialogComponent,
     ExerciseDialogComponent,
+    StatisticsPageComponent,
 
 
   ],
@@ -49,7 +52,8 @@ import { ExerciseDialogComponent } from './exercise-dialog/exercise-dialog.compo
     MatDatepickerModule,
     MatInputModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+  
     
   ],
   providers: [],
