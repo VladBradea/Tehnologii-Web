@@ -1,0 +1,10 @@
+<div>
+    <ul>
+      <li *ngFor="let exam of exams">
+        <input type="radio" name="selectedExam" [(ngModel)]="selectedCourse" [value]="exam" />
+        {{ exam.course }}
+      </li>
+    </ul>
+    
+    <button (click)="sendSelectedExam()">Send</button>
+  </div>

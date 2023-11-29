@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Exam } from '../Classes/Exam';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ExamService } from '../Services/exam.service';
+import { StudentService } from '../Services/student.service';
+import { Student } from '../Classes/Student';
+import { MatDialog } from '@angular/material/dialog';
+import { ExamChooserDialgComponent } from '../exam-chooser-dialg/exam-chooser-dialg.component';
 
 @Component({
   selector: 'app-exams-page',
@@ -10,17 +14,19 @@ import { ExamService } from '../Services/exam.service';
 })
 export class ExamsPageComponent implements OnInit{
   exams: Exam[] = [];
- 
-  
-  constructor(private examService: ExamService){}
+  students: Student[] = [];
+  selectedStudents: Student[] = [];
+
+  constructor(private examService: ExamService, private studentService: StudentService, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.getExams();
+    this.getStudents();
   }
 
-  public getExams(): void{
+  public getExams(): void {
     this.examService.getExams().subscribe(
-      (response: Exam[])=>{
+      (response: Exam[]) => {
         this.exams = response;
       },
       (error: HttpErrorResponse) => {
@@ -29,8 +35,47 @@ export class ExamsPageComponent implements OnInit{
     );
   }
 
- 
-
-    
+  public getStudents(): void {
+    this.studentService.getStudents().subscribe(
+      (response: Student[]) => {
+        this.students = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
+  public toggleSelection(student: Student): void {
+    if (this.isSelected(student)) {
+      this.selectedStudents = this.selectedStudents.filter((s) => s !== student);
+    } else {
+      this.selectedStudents.push(student);
+    }
+  }
+
+  public isSelected(student: Student): boolean {
+    return this.selectedStudents.includes(student);
+  }
+
+  public sendExam(): void {
+    const dialogRef = this.dialog.open(ExamChooserDialgComponent, {
+      data: {
+        exams: this.exams,
+        selectedStudents: this.selectedStudents
+      }
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Selected Exam:', result.selectedExam);
+        console.log('Selected Students:', result.selectedStudents);
+       //
+
+      } else {
+        console.log('Dialog closed without selection');
+      }
+    });
+  }
+
+}

@@ -23,6 +23,7 @@ import { StudentDialogComponent } from './student-dialog/student-dialog.componen
 import { ExerciseDialogComponent } from './exercise-dialog/exercise-dialog.component';
 import { StatisticsPageComponent } from './statistics-page/statistics-page.component';
 import { Chart } from 'chart.js';
+import { ExamChooserDialgComponent } from './exam-chooser-dialg/exam-chooser-dialg.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { Chart } from 'chart.js';
     StudentDialogComponent,
     ExerciseDialogComponent,
     StatisticsPageComponent,
+    ExamChooserDialgComponent,
 
 
   ],

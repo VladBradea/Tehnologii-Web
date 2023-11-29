@@ -1,6 +1,17 @@
-<!--<app-teacher-page></app-teacher-page>-->
-<div class="button-container">
-    <div *ngFor="let exam of exams">
-        <button>{{exam.course}}</button>
-    </div>
-</div>
+<table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Select</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.firstName }}</td>
+        <td>{{ student.lastName }}</td>
+        <td><input type="checkbox" (change)="toggleSelection(student)" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="sendExam()">Send Exam</button>
