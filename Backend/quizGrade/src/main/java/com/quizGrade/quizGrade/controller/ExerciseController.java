@@ -39,7 +39,7 @@ public class ExerciseController {
             Optional<Exercise> exercise = exerciseService.getExerciseById(id);
             return new ResponseEntity<>(exercise, HttpStatus.FOUND);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 

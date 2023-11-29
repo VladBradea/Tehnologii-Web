@@ -39,7 +39,7 @@ public class ExamController {
             Optional<Exam> exam = examService.getExamById(id);
             return new ResponseEntity<>(exam, HttpStatus.FOUND);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 

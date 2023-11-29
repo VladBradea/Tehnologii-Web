@@ -31,9 +31,12 @@ public class GradeController {
     }
 
     @GetMapping("id/{id}")
-    public ResponseEntity<Grade> getGradeById(@PathVariable Long id) {
+    public ResponseEntity<?> getGradeById(@PathVariable Long id) {
         Grade grade = gradeService.getGradeById(id);
-        return new ResponseEntity<>(grade, HttpStatus.OK);
+        if (grade != null) {
+            return new ResponseEntity<>(grade, HttpStatus.FOUND);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("examId/{examId}")
