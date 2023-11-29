@@ -21,8 +21,11 @@ public class Grade {
     @Nullable
     private Student student;
 
-    @OneToOne
-    @JoinColumn
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "exam_id")
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @Nullable
     private Exam exam;
 
     public Grade(int value){

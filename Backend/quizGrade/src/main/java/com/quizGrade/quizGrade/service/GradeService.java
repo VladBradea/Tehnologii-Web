@@ -31,6 +31,15 @@ public class GradeService {
         return gradeRepository.findByExamId(examId);
     }
 
+    public double getGradesAverageByExamId(Long examId) {
+        List<Grade> listOfGrades = gradeRepository.findByExamId(examId);
+        double sum = 0;
+        for (Grade grade : listOfGrades) {
+            sum += grade.getValue();
+        }
+        return sum / listOfGrades.size();
+    }
+
     public List<Grade> getGradesByStudentId(Long studentId) {
         return gradeRepository.findByStudentId(studentId);
     }

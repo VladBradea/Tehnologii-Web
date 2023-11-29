@@ -42,6 +42,11 @@ public class GradeController {
         return new ResponseEntity<>(grades, HttpStatus.OK);
     }
 
+    @GetMapping("average/examId/{examId}")
+    public ResponseEntity<?> getGradesAverageByExamId(@PathVariable Long examId) {
+        return new ResponseEntity(gradeService.getGradesAverageByExamId(examId), HttpStatus.OK);
+    }
+
     @GetMapping("studentId/{studentId}")
     public ResponseEntity<List<Grade>> getGradesByStudentId(@PathVariable Long studentId) {
         List<Grade> grades = gradeService.getGradesByStudentId(studentId);
