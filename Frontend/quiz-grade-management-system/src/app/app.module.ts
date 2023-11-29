@@ -22,7 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { StudentDialogComponent } from './student-dialog/student-dialog.component';
 import { ExerciseDialogComponent } from './exercise-dialog/exercise-dialog.component';
 import { StatisticsPageComponent } from './statistics-page/statistics-page.component';
-import { Chart } from 'chart.js';
+
 import { ExamChooserDialgComponent } from './exam-chooser-dialg/exam-chooser-dialg.component';
 
 

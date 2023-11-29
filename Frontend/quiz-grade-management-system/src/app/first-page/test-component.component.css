@@ -55,7 +55,7 @@ body {
 }
 
 .openai-header .nav-menu .spacer{
-  width: 1000px;
+  width:900px;
 }
 .openai-header nav a:hover {
   background-color: #32CD32;

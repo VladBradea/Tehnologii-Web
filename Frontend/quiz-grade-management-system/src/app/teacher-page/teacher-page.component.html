@@ -1,1 +1,41 @@
-<app-teacher-sidemenu></app-teacher-sidemenu>
+<div class="dark-green-bg page-container">
+    <div class="app-title">
+        <h1>Quiz Grade</h1>
+        <h1>Management</h1>
+        <h1>System</h1>
+    </div>
+    <div class="cards-container">
+        <a class="card" href="/students-page">
+            <mat-icon class="add-icon">supervisor_account</mat-icon>
+            <span class="card-name">List of<br>Students</span>
+        </a>
+        <a class="card" href="/exam-page">
+            <mat-icon class="add-icon">assignment_turned_in</mat-icon>
+            <span class="card-name">Give<br>Grades</span>
+        </a>
+        <a class="card" href="/exercise-page">
+            <mat-icon class="add-icon">list_alt</mat-icon>
+            <span class="card-name">Manage<br>Existing<br>Exercises</span>
+        </a>
+        <a class="card" href="/exam-page">
+            <mat-icon class="add-icon">calendar_today</mat-icon>
+            <span class="card-name">Program<br>an<br>exam</span>
+        </a>
+        <div class="card" (click)="handleCardClick('Card 5')">
+            <mat-icon class="add-icon">create</mat-icon>
+            <span class="card-name">Create a<br>subject</span>
+        </div>
+        <div class="card" (click)="handleCardClick('Card 6')">
+            <mat-icon class="add-icon">person</mat-icon>
+            <span class="card-name">Personal<br>Data</span>
+        </div>
+        <div class="card" (click)="handleCardClick('Card 7')">
+            <mat-icon class="add-icon">pie_chart</mat-icon>
+            <span class="card-name">Statistics</span>
+        </div>
+        <div class="card" (click)="handleCardClick('Card 8')">
+            <mat-icon class="add-icon">feedback</mat-icon>
+            <span class="card-name">Feedback</span>
+        </div>
+    </div>
+</div>
