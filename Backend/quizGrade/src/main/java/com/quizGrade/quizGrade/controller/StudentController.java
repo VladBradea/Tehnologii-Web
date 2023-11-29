@@ -42,7 +42,7 @@ public class StudentController {
             Optional<Student> student = studentService.getStudentById(id);
             return new ResponseEntity<>(student, HttpStatus.FOUND);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
@@ -52,7 +52,7 @@ public class StudentController {
             Optional<Student> student = studentService.getStudentByEmail(email);
             return new ResponseEntity<>(student, HttpStatus.FOUND);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 

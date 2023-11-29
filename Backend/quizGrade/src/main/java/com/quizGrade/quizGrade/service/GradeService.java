@@ -63,10 +63,6 @@ public class GradeService {
                 existingGrade.setValue(grade.getValue());
             }
 
-            if (grade.getValue() != 0) {
-                existingGrade.setValue(grade.getValue());
-            }
-
             if (grade.getExam().getId() != 0) {
                 existingGrade.setExam(grade.getExam());
             }

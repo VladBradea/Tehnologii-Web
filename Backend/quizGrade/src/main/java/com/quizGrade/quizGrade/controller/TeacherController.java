@@ -39,7 +39,7 @@ public class TeacherController {
             Optional<Teacher> teacher = teacherService.getTeacherById(id);
             return new ResponseEntity<>(teacher, HttpStatus.FOUND);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
@@ -49,7 +49,7 @@ public class TeacherController {
             Optional<Teacher> teacher = teacherService.getTeacherByEmail(email);
             return new ResponseEntity<>(teacher, HttpStatus.FOUND);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
