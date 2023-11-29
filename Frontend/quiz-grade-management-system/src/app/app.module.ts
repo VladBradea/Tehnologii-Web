@@ -24,6 +24,9 @@ import { ExerciseDialogComponent } from './exercise-dialog/exercise-dialog.compo
 import { StatisticsPageComponent } from './statistics-page/statistics-page.component';
 
 import { ExamChooserDialgComponent } from './exam-chooser-dialg/exam-chooser-dialg.component';
+import { CreateASubjectComponent } from './create-a-subject/create-a-subject.component';
+import { GradesPageComponent } from './grades-page/grades-page.component';
+import { GradeDialogComponent } from './grade-dialog/grade-dialog.component';
 
 
 @NgModule({
@@ -41,6 +44,9 @@ import { ExamChooserDialgComponent } from './exam-chooser-dialg/exam-chooser-dia
     ExerciseDialogComponent,
     StatisticsPageComponent,
     ExamChooserDialgComponent,
+    CreateASubjectComponent,
+    GradesPageComponent,
+    GradeDialogComponent,
 
 
   ],

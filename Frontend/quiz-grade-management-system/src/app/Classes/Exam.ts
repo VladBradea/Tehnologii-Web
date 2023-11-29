@@ -1,5 +1,9 @@
+import { Teacher } from "./Teacher";
+
 export interface Exam {
     id: number;
     course: string;
-    teacherId: number;
+    examDate: string;
+
+    teacher: Teacher;
 }

@@ -29,10 +29,10 @@ public class Exam {
         this.examDate = examDate;
     }
 
-    public Exam(String course,String examDate, Teacher teacher) {
+    public Exam(String course, Teacher teacher,String examDate) {
         this.course = course;
-        this.examDate = examDate;
         this.teacher = teacher;
+        this.examDate = examDate;
     }
 
     public Exam() {

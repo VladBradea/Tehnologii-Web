@@ -1,0 +1,17 @@
+<form (submit)="createExam()">
+    <table>
+      <tr>
+        <td><label for="course">Course:</label></td>
+        <td><input type="text" id="course" [(ngModel)]="newExam.course" name="course" required></td>
+      </tr>
+      <tr>
+        <td><label for="teacherId">Teacher ID:</label></td>
+        <td><input type="number" id="teacherId" [(ngModel)]="newExam.teacher.id" name="teacherId" required></td>
+      </tr>
+      <tr>
+        <td><label for="date">Exam Date:</label></td>
+        <td><input type="string" id="date" [(ngModel)]="newExam.examDate" name="date" required></td>
+      </tr>
+    </table>
+    <button type="submit">Create Exam</button>
+  </form>

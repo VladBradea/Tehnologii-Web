@@ -1,0 +1,20 @@
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Value</th>
+        <th>Student Name</th>
+        <th>Exam ID</th>
+        <th>Review</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let grade of grades">
+        <td>{{ grade.id }}</td>
+        <td>{{ grade.value }}</td>
+        <td>{{ grade.student.firstName + " " +grade.student.lastName}}</td>
+        <td>{{ grade.exam.id}}</td>
+        <td><button (click)="editGrade(grade)">Edit</button></td>
+      </tr>
+    </tbody>
+  </table>

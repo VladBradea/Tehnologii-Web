@@ -8,6 +8,9 @@ import { ExercisesPageComponent } from './exercises-page/exercises-page.componen
 import { ExamsPageComponent } from './exams-page/exams-page.component';
 import { StudentsPageComponent } from './students-page/students-page.component';
 import { StatisticsPageComponent } from './statistics-page/statistics-page.component';
+import { CreateASubjectComponent } from './create-a-subject/create-a-subject.component';
+import { GradeService } from './Services/grade.service';
+import { GradesPageComponent } from './grades-page/grades-page.component';
 
 const routes: Routes = [
   { path: 'login-page', component: LoginPageComponent},
@@ -18,7 +21,9 @@ const routes: Routes = [
   { path: 'exercise-page', component: ExercisesPageComponent},
   { path: 'exam-page', component: ExamsPageComponent},
   { path: 'students-page', component: StudentsPageComponent},
-  { path: 'statistics-page', component: StatisticsPageComponent}
+  { path: 'statistics-page', component: StatisticsPageComponent},
+  { path: 'create-a-subject', component: CreateASubjectComponent},
+  { path: 'grades-page', component: GradesPageComponent}
   
 ];
 
