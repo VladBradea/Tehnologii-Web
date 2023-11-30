@@ -53,7 +53,7 @@ public class StudentService {
                     if (student.getLastName() != null) {
                         existingStudent.setLastName(student.getLastName());
                     }
-                    existingStudent.setTakingExam(student.getIsTakingExam());
+                    //existingStudent.setTakingExam(student.getIsTakingExam());
 
                     return studentRepository.save(existingStudent);
                 });

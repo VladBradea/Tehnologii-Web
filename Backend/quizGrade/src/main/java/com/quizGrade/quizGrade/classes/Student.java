@@ -16,20 +16,20 @@ public class Student {
     private String firstName;
     @Column
     private String lastName;
-    @Column
-    private boolean isTakingExam;
+    //@Column
+    //private boolean isTakingExam;
 
     public Student(String email, String password, String firstName, String lastName) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.isTakingExam = false;
+        //this.isTakingExam = false;
         //this.exam = null;
     }
 
     public Student() {
-        this.isTakingExam = false;
+        //this.isTakingExam = false;
         //this.exam = null;
     }
 
@@ -72,11 +72,12 @@ public class Student {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+    /*
     public boolean getIsTakingExam() {
         return isTakingExam;
     }
 
     public void setTakingExam(boolean takingExam) {
         isTakingExam = takingExam;
-    }
+    }*/
 }
