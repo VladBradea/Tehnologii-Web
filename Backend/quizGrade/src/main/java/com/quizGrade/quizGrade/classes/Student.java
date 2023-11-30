@@ -11,22 +11,17 @@ public class Student {
     @Column
     private String email;
     @Column
+    private String password;
+    @Column
     private String firstName;
     @Column
     private String lastName;
     @Column
     private boolean isTakingExam;
 
-    /*
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "exam_id")
-    @OnDelete(action = OnDeleteAction.NO_ACTION)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    @Nullable
-    private Exam exam;
-*/
-    public Student(String email, String firstName, String lastName) {
+    public Student(String email, String password, String firstName, String lastName) {
         this.email = email;
+        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.isTakingExam = false;
@@ -48,6 +43,14 @@ public class Student {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setEmail(String email) {
@@ -75,18 +78,5 @@ public class Student {
 
     public void setTakingExam(boolean takingExam) {
         isTakingExam = takingExam;
-    }
-/*
-    public Exam getExam() {
-        return exam;
-    }
-
-    public void setExam(Exam exam) {
-        this.exam = exam;
-    }
-
- */
-    public String toString() {
-        return "id " + this.id + "email " + this.email + "name " + this.lastName + "take exam " + this.isTakingExam;
     }
 }

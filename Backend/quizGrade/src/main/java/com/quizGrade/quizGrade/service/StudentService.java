@@ -44,6 +44,9 @@ public class StudentService {
                     if (student.getEmail() != null) {
                         existingStudent.setEmail(student.getEmail());
                     }
+                    if (student.getPassword() != null) {
+                        existingStudent.setPassword(student.getPassword());
+                    }
                     if (student.getFirstName() != null) {
                         existingStudent.setFirstName(student.getFirstName());
                     }
@@ -55,24 +58,6 @@ public class StudentService {
                     return studentRepository.save(existingStudent);
                 });
     }
-/*
-    public Optional<Student> patchStudentByExam(Student student, Long id) {
-        Optional<Exam> optionalExam = examRepository.findById(student.getExam().getId());
-        return studentRepository.findById(id)
-                .map(existingStudent -> {
-                    if (student.getExam() != null) {
-                        if (student.isTakingExam()) {
-                            existingStudent.setExam(null);
-                            existingStudent.setTakingExam(false);
-                        } else {
-                            existingStudent.setExam(student.getExam());
-                            existingStudent.setTakingExam(true);
-                        }
-                    }
-                    return studentRepository.save(existingStudent);
-                });
-    }
-*/
 
     public boolean deleteStudentById(long id) {
         Optional<Student> student = studentRepository.findById(id);
