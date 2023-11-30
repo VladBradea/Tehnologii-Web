@@ -1,33 +1,42 @@
-<!--<app-teacher-page></app-teacher-page>-->
-<div>
-  <input type="text" placeholder="Search" [(ngModel)]="searchText" (input)="filterExercises()" />
-  <button mat-raised-button color="primary" (click)="addExercise()">Add Exercise</button>
+<div class="dark-green-bg page-container">
+  <div class="app-title">
+    <h1>Quiz Grade</h1>
+    <h1>Management</h1>
+    <h1>System</h1>
+  </div>
+  <div class="container">
+    <div>
+      <input type="text" placeholder="Search" [(ngModel)]="searchText" (input)="filterExercises()" />
+      <button mat-raised-button color="primary" (click)="addExercise()" style="margin-left: auto;">
+        <mat-icon class="add-icon">add_box</mat-icon>Add Exercise
+      </button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Exercise text</th>
+          <th>Answer</th>
+          <th>Answer</th>
+          <th>Answer</th>
+          <th>Answer</th>
+          <th>Correct answer</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let exercise of exercises">
+          <td>{{ exercise.text }}</td>
+          <td>{{ exercise.option1 }}</td>
+          <td>{{ exercise.option2 }}</td>
+          <td>{{ exercise.option3 }}</td>
+          <td>{{ exercise.option4 }}</td>
+          <td>{{ exercise.answer }}</td>
+          <td>
+            <a><button class="table-edit" (click)="editExercise(exercise)"><mat-icon class="add-icon">edit</mat-icon>Edit</button></a>
+            <a><button class="table-delete delete-btn" (click)="deleteExercise(exercise.id)"><mat-icon class="add-icon">delete</mat-icon>Delete</button></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-  <table>
-    <thead>
-      <tr>
-        <th>Exercise text</th>
-        <th>Answer</th>
-        <th>Answer</th>
-        <th>Answer</th>
-        <th>Answer</th>
-        <th>Correct answer</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let exercise of exercises">
-        <td>{{ exercise.text }}</td>
-        <td>{{ exercise.option1 }}</td>
-        <td>{{ exercise.option2 }}</td>
-        <td>{{ exercise.option3 }}</td>
-        <td>{{ exercise.option4 }}</td>
-        <td>{{ exercise.answer }}</td>
-        <td>
-          <button (click)="editExercise(exercise)">Edit</button>
-          <button (click)="deleteExercise(exercise.id)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-

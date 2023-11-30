@@ -1,4 +1,3 @@
-/* your-component.component.css */
 .dark-green-bg {
   background-color: #142323;
   color: #ffffff;
@@ -51,7 +50,7 @@ div {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  flex-direction: column; /* Updated to column layout */
+  flex-direction: column; 
 }
 
 input {
@@ -69,7 +68,7 @@ input {
 table {
   width: 100%;
   margin-top: 20px;
-  background-color: #ffffff; /* Dark green background color to the table */
+  background-color: #ffffff; 
   color: rgb(0, 0, 0);
   border-radius: 10px;
   border: none;
@@ -79,7 +78,7 @@ table {
 
 th {
   background-color: #a8a8a8;
-  color: #000; /* Black text color */
+  color: #000; 
 }
 th,
 td {
@@ -130,14 +129,14 @@ button:hover {
   cursor: pointer;
   transition: background-color 0.3s;
   width: 30%;
-  display: flex; /* Use flex display to align icon and text */
-  align-items: center; /* Align items in the center */
+  display: flex; 
+  align-items: center;
   left: 10px;
   font-size: 16px;
   
 }
 .add-icon {
-  font-size: 16px; /* Set the font size of the icon to match the text */
+  font-size: 16px;
   margin-top:5px;
 }
 table-button.delete-btn {
