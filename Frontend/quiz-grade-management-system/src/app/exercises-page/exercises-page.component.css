@@ -83,10 +83,12 @@ th {
 th,
 td {
   border: 1px solid #ddd;
-  padding: 20px;
   text-align: left;
+  padding: 20px;
+  
   position: relative;
   font-size: 17px;
+  width: 14%;
 }
 
 button {
