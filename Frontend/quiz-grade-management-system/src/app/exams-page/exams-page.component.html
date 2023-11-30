@@ -1,17 +1,28 @@
-<table>
-    <thead>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Select</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let student of students">
-        <td>{{ student.firstName }}</td>
-        <td>{{ student.lastName }}</td>
-        <td><input type="checkbox" (change)="toggleSelection(student)" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <button (click)="sendExam()">Send Exam</button>
+<div class="dark-green-bg page-container">
+  <div class="app-title">
+    <h1>Quiz Grade</h1>
+    <h1>Management</h1>
+    <h1>System</h1>
+  </div>
+  <div class="container">
+    <button (click)="sendExam()">Send Exam</button>
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Select</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{ student.firstName }}</td>
+          <td>{{ student.lastName }}</td>
+          <td>
+            <input type="checkbox" (change)="toggleSelection(student)" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
