@@ -1,52 +1,92 @@
-/* Add this to your styles.css or students-page.component.css */
+/* your-component.component.css */
+.dark-green-bg {
+  background-color: #142323;
+  color: #ffffff;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100vh;
+  padding: 20px;
+}
+
+.app-title {
+  text-align: left;
+  margin-top: calc(0.75cm + 10px);
+  margin-left: calc(1.5cm + 10px);
+  margin-bottom: 0.5cm;
+  position: relative;
+  border-left: 5px solid #24cb8c;
+  padding-left: 10px;
+}
+
+.app-title h1,
+.app-title h2,
+.app-title h3 {
+  margin: 10px;
+  padding: 0;
+  font-size: 35px;
+}
 
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(to right, #3498db, #2c3e50); /* Example gradient colors, feel free to change */
-  color: #fff; /* Set text color to white for better visibility on the gradient background */
+  background: linear-gradient(to right, #3498db, #2c3e50);
+  color: #fff;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  border-radius: 20px;
+  width: 97.5%;
+  margin: 0;
   padding: 20px;
+  background-color: #24cb8c;
+  margin-top: 50px;
+  position: relative; /* Add relative positioning to create a positioning context for absolute positioning */
 }
 
 div {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  flex-direction: column; /* Updated to column layout */
 }
 
 input {
+  position: absolute;
   padding: 10px;
-  margin-right: 10px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
-
-button {
-  margin-right: 10px;
+  top: 15px;
+  left: 20px;
+  width: 40%;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  background-color: #142323; /* Dark green background color to the table */
+  color: white;
 }
 
-th, td {
+
+th {
+  background-color: #f2f2f2;
+  color: #000; /* Black text color */
+}
+th,
+td {
   border: 1px solid #ddd;
   padding: 12px;
   text-align: left;
 }
 
-th {
-  background-color: #f2f2f2;
-}
-
 button {
+  position:absolute;
   padding: 8px 12px;
   background-color: #4CAF50;
   color: white;
@@ -54,6 +94,8 @@ button {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  top: 15px;
+  right : 15px;
 }
 
 button:hover {
