@@ -65,6 +65,7 @@ public class StudentController {
 
     @PatchMapping("id/{id}")
     public ResponseEntity<Student> patchStudent(@PathVariable("id") Long id, @RequestBody Student student) {
+        System.out.println(student.toString());
         return studentService.patchStudent(student, id)
                 .map(patchedStudent -> new ResponseEntity<>(patchedStudent, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
