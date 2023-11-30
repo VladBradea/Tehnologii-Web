@@ -69,6 +69,17 @@ public class StudentController {
                 .map(patchedStudent -> new ResponseEntity<>(patchedStudent, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+/*
+    @PatchMapping("id/{id}/changeExam")
+    public ResponseEntity<Student> patchStudentByExamId(
+            @PathVariable("id") Long id,
+            @RequestBody Student student
+    ) {
+        return studentService.patchStudentByExam(student, id)
+                .map(patchedStudent -> new ResponseEntity<>(patchedStudent, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+ */
 
     @DeleteMapping("id/{id}")
     public ResponseEntity<HttpStatus> deleteStudentById(@PathVariable("id") long id) {
