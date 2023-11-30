@@ -1,0 +1,22 @@
+<div class="feedback-page">
+
+    <div *ngIf="feedbacks.length > 0">
+      <h2>Feedbacks</h2>
+      <table class="feedback-table">
+        <thead>
+          <tr>
+            <th>Comment</th>
+            <th>Exam</th>
+            <th>Student</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let feedback of feedbacks">
+            <td>{{ feedback.comment }}</td>
+            <td>{{ feedback.exam.course }}</td>
+            <td>{{ feedback.student.firstName }} {{ feedback.student.lastName }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
