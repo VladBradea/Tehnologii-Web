@@ -1,34 +1,35 @@
+<!-- your-component.component.html -->
 <div class="dark-green-bg page-container">
   <div class="app-title">
-      <h1>Quiz Grade</h1>
-      <h1>Management</h1>
-      <h1>System</h1>
+    <h1>Quiz Grade</h1>
+    <h1>Management</h1>
+    <h1>System</h1>
   </div>
-    <div class="container">
-  <div>
-    <input type="text" placeholder="Search" [(ngModel)]="searchText" (input)="filterStudents()" />
-    <button mat-raised-button color="primary" (click)="addStudent()">Add Student</button>
+  <div class="container">
+    <div>
+      <input type="text" placeholder="Search" [(ngModel)]="searchText" (input)="filterStudents()" />
+      <button mat-raised-button color="primary" (click)="addStudent()"><mat-icon class="add-icon">add_box</mat-icon>Add Student</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{ student.firstName }}</td>
+          <td>{{ student.lastName }}</td>
+          <td>{{ student.email }}</td>
+          <td>
+            <a><button class="table-edit" (click)="editStudent(student)"><mat-icon class="add-icon">edit</mat-icon>Edit</button></a>
+            <a><button class="table-delete delete-btn" (click)="deleteStudent(student)"><mat-icon class="add-icon">delete</mat-icon>Delete</button></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <table>
-    <thead>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let student of students">
-        <td>{{ student.firstName }}</td>
-        <td>{{ student.lastName }}</td>
-        <td>{{ student.email }}</td>
-        <td>
-          <button class="table-button" (click)="editStudent(student)">Edit</button>
-          <button class="table-button" (click)="deleteStudent(student)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
 </div>
