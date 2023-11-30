@@ -1,11 +1,6 @@
 package com.quizGrade.quizGrade.classes;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Table(name = "students")
 @Entity
@@ -19,10 +14,10 @@ public class Student {
     private String firstName;
     @Column
     private String lastName;
+    @Column
+    private boolean isTakingExam;
 
     /*
-    @Column(nullable = false)
-    private boolean isTakingExam;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "exam_id")
     @OnDelete(action = OnDeleteAction.NO_ACTION)
@@ -34,12 +29,12 @@ public class Student {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        //this.isTakingExam = false;
+        this.isTakingExam = false;
         //this.exam = null;
     }
 
     public Student() {
-        //this.isTakingExam = false;
+        this.isTakingExam = false;
         //this.exam = null;
     }
 
@@ -74,15 +69,14 @@ public class Student {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-/*
-    public boolean isTakingExam() {
+    public boolean getIsTakingExam() {
         return isTakingExam;
     }
 
     public void setTakingExam(boolean takingExam) {
         isTakingExam = takingExam;
     }
-
+/*
     public Exam getExam() {
         return exam;
     }
@@ -92,4 +86,7 @@ public class Student {
     }
 
  */
+    public String toString() {
+        return "id " + this.id + "email " + this.email + "name " + this.lastName + "take exam " + this.isTakingExam;
+    }
 }

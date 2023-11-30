@@ -44,7 +44,7 @@ body {
   padding: 20px;
   background-color: #24cb8c;
   margin-top: 50px;
-  position: relative; /* Add relative positioning to create a positioning context for absolute positioning */
+  position: relative;
 }
 
 div {
@@ -63,55 +63,84 @@ input {
   top: 15px;
   left: 20px;
   width: 40%;
+  font-size: 17px;
 }
 
 table {
   width: 100%;
-  border-collapse: collapse;
   margin-top: 20px;
-  background-color: #142323; /* Dark green background color to the table */
-  color: white;
+  background-color: #ffffff; /* Dark green background color to the table */
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  border: none;
+  border-collapse: collapse;
 }
 
 
 th {
-  background-color: #f2f2f2;
+  background-color: #a8a8a8;
   color: #000; /* Black text color */
 }
 th,
 td {
   border: 1px solid #ddd;
-  padding: 12px;
+  padding: 20px;
   text-align: left;
+  position: relative;
+  font-size: 17px;
 }
 
 button {
   position:absolute;
-  padding: 8px 12px;
-  background-color: #4CAF50;
+  background-color: #217666;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
   top: 15px;
   right : 15px;
+  font-size: 16px;
 }
-.table-button {
-  padding: 8px 12px;
-  background-color: #4CAF50;
+.table-delete {
+  top:10px;
+  background-color: #217666;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  width: 33.3%;
+  display: flex;
+  align-items: center;
+  right: 10px;
+  font-size: 16px;
 }
-
 button:hover {
   background-color: #45a049;
 }
-
-button.delete-btn {
+.table-edit {
+  top:10px;
+  background-color: #217666;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 30%;
+  display: flex; /* Use flex display to align icon and text */
+  align-items: center; /* Align items in the center */
+  left: 10px;
+  font-size: 16px;
+  
+}
+.add-icon {
+  font-size: 16px; /* Set the font size of the icon to match the text */
+  margin-top:5px;
+}
+table-button.delete-btn {
   background-color: #f44336;
 }
 
