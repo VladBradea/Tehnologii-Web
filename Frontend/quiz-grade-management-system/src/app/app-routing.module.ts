@@ -11,6 +11,8 @@ import { StatisticsPageComponent } from './statistics-page/statistics-page.compo
 import { CreateASubjectComponent } from './create-a-subject/create-a-subject.component';
 import { GradeService } from './Services/grade.service';
 import { GradesPageComponent } from './grades-page/grades-page.component';
+import { TeacherPersonalPageComponent } from './teacher-personal-page/teacher-personal-page.component';
+import { FeedbackPageComponent } from './feedback-page/feedback-page.component';
 
 const routes: Routes = [
   { path: 'login-page', component: LoginPageComponent},
@@ -23,7 +25,9 @@ const routes: Routes = [
   { path: 'students-page', component: StudentsPageComponent},
   { path: 'statistics-page', component: StatisticsPageComponent},
   { path: 'create-a-subject', component: CreateASubjectComponent},
-  { path: 'grades-page', component: GradesPageComponent}
+  { path: 'grades-page', component: GradesPageComponent},
+  { path: 'teacher-personal-page', component: TeacherPersonalPageComponent},
+  { path: 'feedback-page', component: FeedbackPageComponent}
   
 ];
 

@@ -34,4 +34,12 @@ export class TeacherService {
   public deleteTeacherByEmail(teacherEmail: string): Observable<void>{
     return this.http.delete<void>(`${this.teacherUrl}email/${teacherEmail}`);
   }
+
+  public updateTeacher(teacher: Teacher): Observable<Teacher> {
+    return this.http.put<Teacher>(`${this.teacherUrl}id/${teacher.id}`, teacher);
+  }
+
+  public patchTeacher(id: number, teacher: Teacher): Observable<Teacher> {
+    return this.http.patch<Teacher>(`${this.teacherUrl}id/${teacher.id}`,teacher);
+  }
 }

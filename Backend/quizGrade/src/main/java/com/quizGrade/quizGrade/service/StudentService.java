@@ -1,8 +1,6 @@
 package com.quizGrade.quizGrade.service;
 
-import com.quizGrade.quizGrade.classes.Exam;
 import com.quizGrade.quizGrade.classes.Student;
-import com.quizGrade.quizGrade.repository.ExamRepository;
 import com.quizGrade.quizGrade.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +13,6 @@ public class StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
-
-    @Autowired
-    private ExamRepository examRepository;
 
     @Autowired
     private GradeService gradeService;
@@ -55,6 +50,7 @@ public class StudentService {
                     if (student.getLastName() != null) {
                         existingStudent.setLastName(student.getLastName());
                     }
+                    existingStudent.setTakingExam(student.getIsTakingExam());
 
                     return studentRepository.save(existingStudent);
                 });
