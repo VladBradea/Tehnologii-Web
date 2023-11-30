@@ -1,3 +1,5 @@
+/* Add this to your styles.css or students-page.component.css */
+
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -45,24 +47,37 @@ body {
   padding: 20px;
 }
 
-button-container {
+.search-bar {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 17px;
 }
 
 button {
-  background-color: #4CAF50;
+  padding: 8px 12px;
+  background-color: #217666;
   color: white;
-  padding: 10px 15px;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-right: 10px;
 }
 
-button:hover {
-  background-color: #45a049;
+.button-icon {
+  font-size: 16px;
+  margin-right: 5px;
 }
 
 table {
@@ -86,6 +101,10 @@ td {
 
 th {
   background-color: #a8a8a8;
+}
+
+button:hover {
+  background-color: #45a049;
 }
 
 button.delete-btn {
