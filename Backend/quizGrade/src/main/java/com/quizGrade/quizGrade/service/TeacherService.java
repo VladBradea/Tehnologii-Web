@@ -30,6 +30,27 @@ public class TeacherService {
         return teacherRepository.findByEmail(email);
     }
 
+    public Teacher updateTeacher(Teacher teacher) {return teacherRepository.save(teacher);}
+
+    public Optional<Teacher> patchTeacher(Teacher teacher, Long id) {
+        return teacherRepository.findById(id)
+                .map(existingTeacher -> {
+                    if (teacher.getFirstName() != null) {
+                        existingTeacher.setFirstName(teacher.getFirstName());
+                    }
+                    if (teacher.getLastName() != null) {
+                        existingTeacher.setLastName(teacher.getLastName());
+                    }
+                    if (teacher.getEmail() != null) {
+                        existingTeacher.setEmail(teacher.getEmail());
+                    }
+                    if (teacher.getPassword() != null) {
+                        existingTeacher.setPassword(teacher.getPassword());
+                    }
+                    return teacherRepository.save(existingTeacher);
+                });
+    }
+
     public boolean deleteTeacherByEmail (String email) {
         Optional<Teacher> teacher = teacherRepository.findByEmail(email);
         if (teacher.isPresent()) {

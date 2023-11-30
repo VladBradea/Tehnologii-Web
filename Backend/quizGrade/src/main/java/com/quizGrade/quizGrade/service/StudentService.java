@@ -1,7 +1,8 @@
 package com.quizGrade.quizGrade.service;
 
+import com.quizGrade.quizGrade.classes.Exam;
 import com.quizGrade.quizGrade.classes.Student;
-import com.quizGrade.quizGrade.exceptions.NotFoundException;
+import com.quizGrade.quizGrade.repository.ExamRepository;
 import com.quizGrade.quizGrade.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,9 @@ public class StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
+
+    @Autowired
+    private ExamRepository examRepository;
 
     @Autowired
     private GradeService gradeService;
@@ -55,6 +59,24 @@ public class StudentService {
                     return studentRepository.save(existingStudent);
                 });
     }
+/*
+    public Optional<Student> patchStudentByExam(Student student, Long id) {
+        Optional<Exam> optionalExam = examRepository.findById(student.getExam().getId());
+        return studentRepository.findById(id)
+                .map(existingStudent -> {
+                    if (student.getExam() != null) {
+                        if (student.isTakingExam()) {
+                            existingStudent.setExam(null);
+                            existingStudent.setTakingExam(false);
+                        } else {
+                            existingStudent.setExam(student.getExam());
+                            existingStudent.setTakingExam(true);
+                        }
+                    }
+                    return studentRepository.save(existingStudent);
+                });
+    }
+*/
 
     public boolean deleteStudentById(long id) {
         Optional<Student> student = studentRepository.findById(id);

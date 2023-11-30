@@ -53,6 +53,20 @@ public class TeacherController {
         }
     }
 
+    @PutMapping("id/{id}")
+    public ResponseEntity<Teacher> updateTeacher(@PathVariable("id") Long id, @RequestBody Teacher teacher) {
+        teacher.setId(id);
+        Teacher updateTeacher = teacherService.updateTeacher(teacher);
+        return new ResponseEntity<>(updateTeacher, HttpStatus.OK);
+    }
+
+    @PatchMapping("id/{id}")
+    public ResponseEntity<Teacher> patchTeacher(@PathVariable("id") Long id, @RequestBody Teacher teacher) {
+        return teacherService.patchTeacher(teacher, id)
+                .map(patchedTeacher -> new ResponseEntity<>(patchedTeacher, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
     @DeleteMapping("id/{id}")
     public ResponseEntity<HttpStatus> deleteTeacherById(@PathVariable("id") long id) {
         if (teacherService.deleteTeacherById(id)) {
