@@ -35,7 +35,7 @@ const routes: Routes = [
   { path: 'feedback-page', component: FeedbackPageComponent },
   { path: 'student-main-page', component: StudentMainPageComponent },
   { path: 'student-personal-data', component: StudentPersonalDataComponent },
-  { path: 'view-gardes', component: ViewGradesComponent },
+  { path: 'view-grades', component: ViewGradesComponent },
   { path: 'take-exam', component: TakeExamComponent },
   { path: 'student-feedback', component: StudentFeedbackComponent },
   

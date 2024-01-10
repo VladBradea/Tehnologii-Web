@@ -19,7 +19,7 @@ export class GradeService {
     return this.http.post<Grade>(`${this.gradeUrl}`,grade);
   }
 
-  public getGradeById(gradeId: number): Observable<Grade>{
+  public getGradesById(gradeId: number): Observable<Grade>{
     return this.http.get<Grade>(`${this.gradeUrl}id/${gradeId}`);
   }
 
@@ -27,8 +27,8 @@ export class GradeService {
     return this.http.get<Grade>(`${this.gradeUrl}examId/${examId}`);
   }
 
-  public getGradeByStudentId(studentId: number): Observable<Grade>{
-    return this.http.get<Grade>(`${this.gradeUrl}studentId/${studentId}`);
+  public getGradesByStudentId(studentId: number): Observable<Grade[]>{
+    return this.http.get<Grade[]>(`${this.gradeUrl}studentId/${studentId}`);
   }
 
   public getGradeByExamAndStudentId(examId: number, studentId: number): Observable<Grade>{

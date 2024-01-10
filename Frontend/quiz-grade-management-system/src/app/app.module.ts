@@ -35,6 +35,7 @@ import { StudentPersonalDataComponent } from './student-personal-data/student-pe
 import { ViewGradesComponent } from './view-grades/view-grades.component';
 import { TakeExamComponent } from './take-exam/take-exam.component';
 import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
+import { SendFeedbackDialogComponent } from './send-feedback-dialog/send-feedback-dialog.component';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import { StudentFeedbackComponent } from './student-feedback/student-feedback.co
     ViewGradesComponent,
     TakeExamComponent,
     StudentFeedbackComponent,
+    SendFeedbackDialogComponent,
 
 
   ],

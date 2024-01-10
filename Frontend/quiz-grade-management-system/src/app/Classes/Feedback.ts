@@ -4,7 +4,7 @@ import { Student } from "./Student";
 export interface Feedback{
     id: number;
     comment: string;
-    exam: Exam;
-    student: Student;
+    exam: Exam ;
+    student: Student ;
 
 }
