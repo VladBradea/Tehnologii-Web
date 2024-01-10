@@ -3,8 +3,11 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\login-page"
+    "\\src\\app\\Classes",
+    "\\src\\app\\login-page",
+    "\\src\\app\\signup-page",
+    "\\src\\app\\students-page"
   ],
-  "SelectedNode": "\\src\\app\\login-page\\login-page.component.html",
+  "SelectedNode": "\\src\\app\\signup-page\\signup-page.component.html",
   "PreviewInSolutionExplorer": false
 }

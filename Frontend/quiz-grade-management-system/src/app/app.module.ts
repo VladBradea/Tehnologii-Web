@@ -30,6 +30,11 @@ import { GradeDialogComponent } from './grade-dialog/grade-dialog.component';
 import { TeacherPersonalPageComponent } from './teacher-personal-page/teacher-personal-page.component';
 import { FeedbackPageComponent } from './feedback-page/feedback-page.component';
 import { TeacherDialogComponent } from './teacher-dialog/teacher-dialog.component';
+import { StudentMainPageComponent } from './student-main-page/student-main-page.component';
+import { StudentPersonalDataComponent } from './student-personal-data/student-personal-data.component';
+import { ViewGradesComponent } from './view-grades/view-grades.component';
+import { TakeExamComponent } from './take-exam/take-exam.component';
+import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
 
 
 @NgModule({
@@ -53,6 +58,11 @@ import { TeacherDialogComponent } from './teacher-dialog/teacher-dialog.componen
     TeacherPersonalPageComponent,
     FeedbackPageComponent,
     TeacherDialogComponent,
+    StudentMainPageComponent,
+    StudentPersonalDataComponent,
+    ViewGradesComponent,
+    TakeExamComponent,
+    StudentFeedbackComponent,
 
 
   ],

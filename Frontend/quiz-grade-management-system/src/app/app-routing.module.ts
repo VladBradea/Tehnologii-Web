@@ -13,6 +13,11 @@ import { GradeService } from './Services/grade.service';
 import { GradesPageComponent } from './grades-page/grades-page.component';
 import { TeacherPersonalPageComponent } from './teacher-personal-page/teacher-personal-page.component';
 import { FeedbackPageComponent } from './feedback-page/feedback-page.component';
+import { StudentMainPageComponent } from 'src/app/student-main-page/student-main-page.component';
+import { StudentPersonalDataComponent } from 'src/app/student-personal-data/student-personal-data.component';
+import { ViewGradesComponent } from 'src/app/view-grades/view-grades.component';
+import { TakeExamComponent } from 'src/app/take-exam/take-exam.component';
+import { StudentFeedbackComponent } from 'src/app/student-feedback/student-feedback.component';
 
 const routes: Routes = [
   { path: 'login-page', component: LoginPageComponent},
@@ -27,7 +32,12 @@ const routes: Routes = [
   { path: 'create-a-subject', component: CreateASubjectComponent},
   { path: 'grades-page', component: GradesPageComponent},
   { path: 'teacher-personal-page', component: TeacherPersonalPageComponent},
-  { path: 'feedback-page', component: FeedbackPageComponent}
+  { path: 'feedback-page', component: FeedbackPageComponent },
+  { path: 'student-main-page', component: StudentMainPageComponent },
+  { path: 'student-personal-data', component: StudentPersonalDataComponent },
+  { path: 'view-gardes', component: ViewGradesComponent },
+  { path: 'take-exam', component: TakeExamComponent },
+  { path: 'student-feedback', component: StudentFeedbackComponent },
   
 ];
 
