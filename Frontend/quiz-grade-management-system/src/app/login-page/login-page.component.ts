@@ -30,7 +30,7 @@ export class LoginPageComponent {
               const matchedStudent = students.find(student => student.email === this.username && student.password === this.password);
               if (matchedStudent) {
                 console.log('Student logged in:', matchedStudent);
-                this.router.navigate(['/teacher-page']);
+                this.router.navigate(['/student-main-page']);
               } else {
                 console.error('Invalid username or password');
                 this.accountNotFound = true;
