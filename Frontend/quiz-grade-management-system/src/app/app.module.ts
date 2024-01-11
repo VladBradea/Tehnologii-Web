@@ -36,6 +36,7 @@ import { ViewGradesComponent } from './view-grades/view-grades.component';
 import { TakeExamComponent } from './take-exam/take-exam.component';
 import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
 import { SendFeedbackDialogComponent } from './send-feedback-dialog/send-feedback-dialog.component';
+import { SendCodePageComponent } from './send-code-page/send-code-page.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { SendFeedbackDialogComponent } from './send-feedback-dialog/send-feedbac
     TakeExamComponent,
     StudentFeedbackComponent,
     SendFeedbackDialogComponent,
+    SendCodePageComponent,
 
 
   ],
