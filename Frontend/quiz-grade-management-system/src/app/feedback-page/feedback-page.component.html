@@ -1,22 +1,39 @@
+<div class="dark-green-bg page-container">
+  <div class="app-title">
+    <div>
+    <h1>Quiz Grade</h1>
+    <h1>Management</h1>
+    <h1>System</h1>
+  </div>
+  <div class="title-buttons">
+    <a href="/quizGrade"><button>Logout</button></a>
+    <a href="/teacher-page"><button>Back</button></a>
+  </div>
+</div>
+<div class="container">
 <div class="feedback-page">
 
     <div *ngIf="feedbacks.length > 0">
-      <h2>Feedbacks</h2>
+      <h1>Feedbacks</h1>
       <table class="feedback-table">
         <thead>
           <tr>
+            <th>Student</th>
             <th>Comment</th>
             <th>Exam</th>
-            <th>Student</th>
+            <th>Exam ID</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let feedback of feedbacks">
+            <td>{{ feedback.student.firstName }} {{ feedback.student.lastName }}</td>
             <td>{{ feedback.comment }}</td>
             <td>{{ feedback.exam.course }}</td>
-            <td>{{ feedback.student.firstName }} {{ feedback.student.lastName }}</td>
+            <td>{{ feedback.exam.id }}</td>
+            
           </tr>
         </tbody>
       </table>
     </div>
   </div>
+</div>
