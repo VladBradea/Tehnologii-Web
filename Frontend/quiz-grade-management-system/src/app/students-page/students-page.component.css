@@ -6,19 +6,58 @@
 .page-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch; /* Updated to stretch to use the full width */
   height: 100vh;
   padding: 20px;
 }
 
 .app-title {
-  text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Keeps items at both ends */
+  align-items: center;
+  width: 100%; /* Ensures the title section spans the full width */
   margin-top: calc(0.75cm + 10px);
-  margin-left: calc(1.5cm + 10px);
   margin-bottom: 0.5cm;
-  position: relative;
   border-left: 5px solid #24cb8c;
   padding-left: 10px;
+}
+.title-buttons {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.title-buttons button {
+  padding: 10px 15px;
+  background-color: #217666;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 18px;
+  
+}
+
+.title-buttons button:hover {
+  background-color: #1f9e7d;
+}
+
+
+.title-buttons button {
+  position: relative; 
+}
+
+
+.title-buttons button {
+  width: auto; 
+  min-width: 100px;
+  text-decoration: none;
+}
+.title-buttons a{
+  text-decoration: none;
 }
 
 .app-title h1,
@@ -39,7 +78,7 @@ body {
 .container {
   border-radius: 20px;
   width: 97.5%;
-  margin: 0;
+  margin-top: 50px;
   padding: 20px;
   background-color: #24cb8c;
   margin-top: 50px;
@@ -50,7 +89,7 @@ div {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 input {
@@ -68,17 +107,16 @@ input {
 table {
   width: 100%;
   margin-top: 20px;
-  background-color: #ffffff; 
+  background-color: #ffffff;
   color: rgb(0, 0, 0);
   border-radius: 10px;
   border: none;
   border-collapse: collapse;
 }
 
-
 th {
   background-color: #a8a8a8;
-  color: #000; 
+  color: #000;
 }
 th,
 td {
@@ -90,7 +128,7 @@ td {
 }
 
 button {
-  position:absolute;
+  position: absolute;
   background-color: #217666;
   color: white;
   border: none;
@@ -100,11 +138,12 @@ button {
   display: flex;
   align-items: center;
   top: 15px;
-  right : 15px;
+  right: 15px;
   font-size: 16px;
 }
+
 .table-delete {
-  top:10px;
+  top: 10px;
   background-color: #217666;
   color: white;
   border: none;
@@ -117,11 +156,13 @@ button {
   right: 10px;
   font-size: 16px;
 }
+
 button:hover {
   background-color: #45a049;
 }
+
 .table-edit {
-  top:10px;
+  top: 10px;
   background-color: #217666;
   color: white;
   border: none;
@@ -129,16 +170,17 @@ button:hover {
   cursor: pointer;
   transition: background-color 0.3s;
   width: 30%;
-  display: flex; 
+  display: flex;
   align-items: center;
   left: 10px;
   font-size: 16px;
-  
 }
+
 .add-icon {
   font-size: 16px;
-  margin-top:5px;
+  margin-top: 5px;
 }
+
 table-button.delete-btn {
   background-color: #f44336;
 }

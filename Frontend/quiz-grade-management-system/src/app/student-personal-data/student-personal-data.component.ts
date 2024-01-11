@@ -15,7 +15,7 @@ export class StudentPersonalDataComponent {
   constructor(private studentService: StudentService) {}
 
   ngOnInit(): void {
-    const studentId = 1;
+    const studentId = 6;
     this.getStudentById(studentId);
   }
 

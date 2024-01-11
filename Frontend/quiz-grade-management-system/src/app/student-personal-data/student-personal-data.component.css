@@ -1,91 +1,143 @@
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #3498db, #2c3e50);
-    color: #fff;
-  }
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #3498db, #2c3e50);
+  color: #fff;
+}
+
+.dark-green-bg {
+  background-color: #142323;
+  color: #ffffff;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Updated to stretch to use the full width */
+  height: 100vh;
+  padding: 20px;
+}
+
+.app-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Keeps items at both ends */
+  align-items: center;
+  width: 100%; /* Ensures the title section spans the full width */
+  margin-top: calc(0.75cm + 10px);
+  margin-bottom: 0.5cm;
+  border-left: 5px solid #24cb8c;
+  padding-left: 10px;
+}
+
+.title-buttons button {
+  padding: 8px 12px;
+  margin-right: 2cm; /* Add space between buttons */
+  margin-bottom: 15px;
+  background-color: #217666;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+.title-buttons button a {
+  color: white; /* Sets the text color to white */
+  text-decoration: none; /* Optionally removes underline from links */
   
-  .dark-green-bg {
-    background-color: #142323;
-    color: #ffffff;
-  }
-  
-  .page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    height: 100vh;
-    padding: 20px;
-  }
-  
-  .app-title {
-    text-align: left;
-    margin-top: calc(0.75cm + 10px);
-    margin-left: calc(1.5cm + 10px);
-    margin-bottom: 0.5cm;
-    position: relative;
-    border-left: 5px solid #24cb8c;
-    padding-left: 10px;
-  }
-  
-  .app-title h1,
-  .app-title h2,
-  .app-title h3 {
-    margin: 10px 0;
-    padding: 0;
-    font-size: 35px;
-  }
-  
-  .container {
-    border-radius: 20px;
-    width: 97.5%;
-    margin-top: 50px;
-    position: relative;
-    background-color: #24cb8c;
-    padding: 20px;
-  }
-  
-  .search-bar {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  input {
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 17px;
-  }
-  
-  button {
-    padding: 8px 12px;
-    background-color: #217666;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    margin-right: 10px;
-  }
-  
-  .button-icon {
-    font-size: 16px;
-    margin-right: 5px;
-  }
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  button.delete-btn {
-    background-color: #f44336;
-  }
-  
-  button.delete-btn:hover {
-    background-color: #d32f2f;
-  }
-  
+}
+.app-title h1,
+.app-title h2,
+.app-title h3 {
+  margin: 10px 0;
+  padding: 0;
+  font-size: 35px;
+  align-self: left;
+}
+
+.container {
+  border-radius: 20px;
+  width: 97.5%;
+  margin-top: 50px;
+  position: relative;
+  background-color: #24cb8c;
+  padding: 20px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 17px;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #217666;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.button-icon {
+  font-size: 16px;
+  margin-right: 5px;
+}
+button:hover {
+  background-color: #45a049;
+}
+
+button.delete-btn {
+  background-color: #f44336;
+}
+
+button.delete-btn:hover {
+  background-color: #d32f2f;
+}
+.student-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px; /* Adjust this value to control the space between image and text */
+}
+
+.student-image img {
+  width: 450px;
+  height: auto; /* Reduced width */
+  box-shadow: 8px 12px 16px 8px rgba(0, 0, 0, 0.2);
+  margin-right: 25px;
+}
+
+.student-info {
+  flex-grow: 1;
+}
+.student-info-card {
+  background-color: #fff; /* Card background */
+  color: #000; /* Text color */
+  padding: 20px; /* Padding inside the card */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  margin-left: 25px; /* Distance from the image */
+  width: fit-content;
+}
+
+
+.student-info-card .h2{
+  font-size: 18px;
+}

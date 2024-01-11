@@ -1,9 +1,30 @@
-<div *ngIf="student">
-    <h2>{{ student.firstName }} {{ student.lastName }}</h2>
-    <p>Email: {{ student.email }}</p>
-    <p>Password: {{student.password}}</p>
-
-    
-  
-  
+<div class="dark-green-bg page-container">
+    <div class="app-title">
+        <div>
+          <h1>Quiz Grade</h1>
+          <h1>Management</h1>
+          <h1>System</h1>
+        </div>
+        <div class="title-buttons">
+          <button><a href="/student-main-page">Back</a></button>
+          <button><a href="/quizGrade">Logout</a></button>
+        </div>
+      </div>
+    <div class="container">
+      <div *ngIf="student" class="student-container">
+        <div class="student-image">
+          <img src="assets/Student-icon.png" alt="Student Image">
+        </div>
+        <div class="student-info">
+          <div class="student-info-card">
+            <h2>First name:   {{ student.firstName }} </h2>
+            <h2>Last name:  {{ student.lastName }}</h2>
+            <h2>ID: {{ student.id }}</h2>
+            <h2>Email: {{ student.email }}</h2>
+            <h2>Password: {{ student.password }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   
