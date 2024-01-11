@@ -1,9 +1,24 @@
-<div *ngIf="teacher">
-    <h2>{{ teacher.firstName }} {{ teacher.lastName }}</h2>
-    <p>Email: {{ teacher.email }}</p>
-    <p>Password: {{teacher.password}}</p>
-
-    <button (click)="editPassword(teacher)">Change password</button>
-  
-  
-  
+<div class="dark-green-bg page-container">
+  <div class="app-title">
+    <h1>Quiz Grade</h1>
+    <h1>Management</h1>
+    <h1>System</h1>
+  </div>
+  <div class="container">
+    <div *ngIf="teacher" class="teacher-container">
+      <div class="teacher-image">
+        <img src="assets/Teacher-image.png" alt="Teacher Image">
+      </div>
+      <div class="teacher-info">
+        <div class="teacher-info-card">
+          <h2>First name:   {{ teacher.firstName }} </h2>
+          <h2>Last name:  {{ teacher.lastName }}</h2>
+          <p>ID: {{ teacher.id }}</p>
+          <p>Email: {{ teacher.email }}</p>
+          <p>Password: {{ teacher.password }}</p>
+          <button (click)="editPassword(teacher)">Edit Personal Data</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

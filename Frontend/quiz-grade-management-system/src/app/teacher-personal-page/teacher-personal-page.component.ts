@@ -54,7 +54,7 @@ export class TeacherPersonalPageComponent implements OnInit {
             console.error('Error updating teacher:', error.message);
           }
         );
-      }
-    });
-  }
+      }
+    });
+  }
 }

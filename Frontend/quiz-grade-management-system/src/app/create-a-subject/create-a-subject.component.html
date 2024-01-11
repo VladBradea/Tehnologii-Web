@@ -1,17 +1,27 @@
-<form (submit)="createExam()">
-    <table>
-      <tr>
-        <td><label for="course">Course:</label></td>
-        <td><input type="text" id="course" [(ngModel)]="newExam.course" name="course" required></td>
-      </tr>
-      <tr>
-        <td><label for="teacherId">Teacher ID:</label></td>
-        <td><input type="number" id="teacherId" [(ngModel)]="newExam.teacher.id" name="teacherId" required></td>
-      </tr>
-      <tr>
-        <td><label for="date">Exam Date:</label></td>
-        <td><input type="string" id="date" [(ngModel)]="newExam.examDate" name="date" required></td>
-      </tr>
-    </table>
-    <button type="submit">Create Exam</button>
-  </form>
+<div class="dark-green-bg page-container">
+  <div class="app-title">
+    <h1>Quiz Grade</h1>
+    <h1>Management</h1>
+    <h1>System</h1>
+  </div>
+  <div class="container">
+    <div class="form-container">
+      <form>
+        <!-- ... form fields here ... -->
+        <div class="form-group">
+          <label for="subjectName">Subject Name:</label>
+          <input type="text" id="subjectName" name="subjectName" required>
+        </div>
+        <div class="form-group">
+          <label for="teacherId">Teacher ID:</label>
+          <input type="number" id="teacherId" name="teacherId" required>
+        </div>
+        <div class="form-group">
+          <label for="examDate">Exam Date:</label>
+          <input type="date" id="examDate" name="examDate">
+      </div>
+        <button type="submit" class="btn-submit">Create Subject</button>
+      </form>
+    </div>  
+  </div>
+</div>
