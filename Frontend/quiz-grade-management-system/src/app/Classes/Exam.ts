@@ -1,3 +1,4 @@
+import { Grade } from "./Grade";
 import { Teacher } from "./Teacher";
 
 export interface Exam {
@@ -6,4 +7,6 @@ export interface Exam {
     examDate: string;
 
     teacher: Teacher;
+    grade: number;
+    
 }

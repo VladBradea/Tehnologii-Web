@@ -25,6 +25,7 @@ export class CreateASubjectComponent {
     password: '',
    },
    examDate: '',
+   grade: 0
  };
 
  createExam() {

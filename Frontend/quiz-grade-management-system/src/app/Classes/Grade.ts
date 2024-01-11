@@ -6,6 +6,7 @@ export interface Grade {
     value: number;
     exam_id: number;
     student_id: number;
+    average: number;
 
     student: Student;
     exam: Exam;
