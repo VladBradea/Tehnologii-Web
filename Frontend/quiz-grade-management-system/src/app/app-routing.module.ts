@@ -18,6 +18,7 @@ import { StudentPersonalDataComponent } from 'src/app/student-personal-data/stud
 import { ViewGradesComponent } from 'src/app/view-grades/view-grades.component';
 import { TakeExamComponent } from 'src/app/take-exam/take-exam.component';
 import { StudentFeedbackComponent } from 'src/app/student-feedback/student-feedback.component';
+import { SendCodePageComponent } from 'src/app/send-code-page/send-code-page.component';
 
 const routes: Routes = [
   { path: 'login-page', component: LoginPageComponent},
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'view-grades', component: ViewGradesComponent },
   { path: 'take-exam', component: TakeExamComponent },
   { path: 'student-feedback', component: StudentFeedbackComponent },
+  { path: 'send-code-page', component: SendCodePageComponent },
   
 ];
 
