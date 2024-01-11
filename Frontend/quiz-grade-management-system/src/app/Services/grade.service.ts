@@ -54,4 +54,9 @@ export class GradeService {
   public deleteAllGrades(): Observable<void>{
     return this.http.delete<void>(`${this.gradeUrl}`);
   }
+
+  public getGradesAverageByExamId(examId: number): Observable<Grade>{
+    return this.http.get<Grade>(`${this.gradeUrl}average/examId/${examId}`);
+  }
+
 }
