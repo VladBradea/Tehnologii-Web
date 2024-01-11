@@ -7,6 +7,6 @@ export interface Exam {
     examDate: string;
 
     teacher: Teacher;
-    grade: number;
+    grade: string;
     
 }

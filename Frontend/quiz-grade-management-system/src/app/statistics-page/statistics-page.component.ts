@@ -39,7 +39,7 @@ export class StatisticsPageComponent implements OnInit {
     this.gradeService.getGradesAverageByExamId(exam.id).subscribe(
       (grade: Grade) => {
         console.log(`Average grade for exam ${exam.id}:`, grade);
-        exam.grade = grade.average; // Update the grade property in the exam directly
+        exam.grade =' '+ grade; // Update the grade property in the exam directly
       },
       (error: HttpErrorResponse) => {
         console.error(`Error fetching average grade for exam ${exam.id}:`, error);

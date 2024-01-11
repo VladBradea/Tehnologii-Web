@@ -22,7 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { StudentDialogComponent } from './student-dialog/student-dialog.component';
 import { ExerciseDialogComponent } from './exercise-dialog/exercise-dialog.component';
 import { StatisticsPageComponent } from './statistics-page/statistics-page.component';
-
+import { NgChartsModule } from 'ng2-charts';
 import { ExamChooserDialgComponent } from './exam-chooser-dialg/exam-chooser-dialg.component';
 import { CreateASubjectComponent } from './create-a-subject/create-a-subject.component';
 import { GradesPageComponent } from './grades-page/grades-page.component';
@@ -37,7 +37,7 @@ import { TakeExamComponent } from './take-exam/take-exam.component';
 import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
 import { SendFeedbackDialogComponent } from './send-feedback-dialog/send-feedback-dialog.component';
 import { SendCodePageComponent } from './send-code-page/send-code-page.component';
-
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 
 @NgModule({
   declarations: [
@@ -81,8 +81,8 @@ import { SendCodePageComponent } from './send-code-page/send-code-page.component
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-  
-    
+    NgChartsModule,
+    CanvasJSAngularChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
