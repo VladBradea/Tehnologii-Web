@@ -5,7 +5,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { GradeService } from '../Services/grade.service';
 import { Grade } from '../Classes/Grade';
 import { UserDataService } from '../Services/user-data.service';
-
+import { MatDialog } from '@angular/material/dialog';
+import { StatsDialogComponent } from '../stats-dialog/stats-dialog.component';
 @Component({
   selector: 'app-statistics-page',
   templateUrl: './statistics-page.component.html',
@@ -16,8 +17,7 @@ export class StatisticsPageComponent implements OnInit {
   exams: Exam[] = [];
   examAverages: { [examId: number]: number } = {};
 
-  constructor(private examService: ExamService, private gradeService: GradeService, private userDataService: UserDataService) {}
-
+  constructor(private examService: ExamService, private gradeService: GradeService, private userDataService: UserDataService,public dialog: MatDialog) {}
   ngOnInit() {
     this.getExams();
   }
@@ -50,5 +50,11 @@ export class StatisticsPageComponent implements OnInit {
 
   public logout(){
     this.userDataService.logout();
+  }
+  viewStats(exam: Exam): void {
+    const dialogRef = this.dialog.open(StatsDialogComponent, {
+      width: '600px',
+      data: { ...exam }
+    });
   }
 }
