@@ -1,18 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserDataService } from '../Services/user-data.service';
 
 @Component({
   selector: 'app-teacher-page',
   templateUrl: './teacher-page.component.html',
   styleUrls: ['./teacher-page.component.css']
 })
-export class TeacherPageComponent {
+export class TeacherPageComponent implements OnInit{
+
+  constructor(private userDataService: UserDataService){
+    
+  }
+  ngOnInit(){
+    console.log(this.userDataService.getUserData(), "main page ngOnInit");
+  }
+
+
   handleButtonClick(): void {
-    // Logic for handling button click goes here
     console.log('Button clicked!');
   }
 
   handleCardClick(cardName: string): void {
-    // Logic for handling card click goes here
     console.log(`Card clicked: ${cardName}`);
+  }
+
+  public logout(){
+    this.userDataService.logout();
   }
 }

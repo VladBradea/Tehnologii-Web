@@ -4,6 +4,7 @@ import { ExamService } from '../Services/exam.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { GradeService } from '../Services/grade.service';
 import { Grade } from '../Classes/Grade';
+import { UserDataService } from '../Services/user-data.service';
 
 @Component({
   selector: 'app-statistics-page',
@@ -15,7 +16,7 @@ export class StatisticsPageComponent implements OnInit {
   exams: Exam[] = [];
   examAverages: { [examId: number]: number } = {};
 
-  constructor(private examService: ExamService, private gradeService: GradeService) {}
+  constructor(private examService: ExamService, private gradeService: GradeService, private userDataService: UserDataService) {}
 
   ngOnInit() {
     this.getExams();
@@ -45,5 +46,9 @@ export class StatisticsPageComponent implements OnInit {
         console.error(`Error fetching average grade for exam ${exam.id}:`, error);
       }
     );
+  }
+
+  public logout(){
+    this.userDataService.logout();
   }
 }

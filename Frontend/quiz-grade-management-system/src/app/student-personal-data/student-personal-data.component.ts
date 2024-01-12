@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Student } from '../Classes/Student';
 import { StudentService } from '../Services/student.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { UserDataService } from '../Services/user-data.service';
 
 @Component({
   selector: 'app-student-personal-data',
@@ -12,11 +13,10 @@ export class StudentPersonalDataComponent {
   student: Student | null = null;
   firstStudent: Student| null = null;
 
-  constructor(private studentService: StudentService) {}
+  constructor(private studentService: StudentService, private userDataService: UserDataService) {}
 
   ngOnInit(): void {
-    const studentId = 6;
-    this.getStudentById(studentId);
+    this.getStudentById(this.userDataService.getUserData().id);
   }
 
   private getStudentById(studentId: number): void {
@@ -33,6 +33,10 @@ export class StudentPersonalDataComponent {
         }
       }
     );
+  }
+
+  public logout(){
+    this.userDataService.logout();
   }
 
 }

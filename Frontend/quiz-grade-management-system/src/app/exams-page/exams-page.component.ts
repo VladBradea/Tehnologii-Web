@@ -6,6 +6,7 @@ import { StudentService } from '../Services/student.service';
 import { Student } from '../Classes/Student';
 import { MatDialog } from '@angular/material/dialog';
 import { ExamChooserDialgComponent } from '../exam-chooser-dialg/exam-chooser-dialg.component';
+import { UserDataService } from '../Services/user-data.service';
 
 @Component({
   selector: 'app-exams-page',
@@ -17,7 +18,7 @@ export class ExamsPageComponent implements OnInit{
   students: Student[] = [];
   selectedStudents: Student[] = [];
 
-  constructor(private examService: ExamService, private studentService: StudentService, private dialog: MatDialog) {}
+  constructor(private examService: ExamService, private studentService: StudentService, private dialog: MatDialog, private userDataService: UserDataService) {}
 
   ngOnInit() {
     this.getExams();
@@ -76,6 +77,10 @@ export class ExamsPageComponent implements OnInit{
         console.log('Dialog closed without selection');
       }
     });
+  }
+
+  public logout(){
+    this.userDataService.logout();
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Feedback } from '../Classes/Feedback';
 import { FeedbackService } from '../Services/feedback.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { UserDataService } from '../Services/user-data.service';
 
 @Component({
   selector: 'app-feedback-page',
@@ -11,7 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class FeedbackPageComponent implements OnInit{
   feedbacks: Feedback[] = [];
 
-  constructor(private feedbackService: FeedbackService){}
+  constructor(private feedbackService: FeedbackService, private userDataService: UserDataService){}
 
 
   ngOnInit(): void {
@@ -27,5 +28,9 @@ export class FeedbackPageComponent implements OnInit{
         alert(error.message);
       }
     );
+  }
+
+  public logout(){
+    this.userDataService.logout();
   }
 }

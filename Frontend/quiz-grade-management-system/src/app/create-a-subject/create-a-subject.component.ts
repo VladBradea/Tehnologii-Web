@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ExamService } from '../Services/exam.service';
 import { Exam } from '../Classes/Exam';
 import { Teacher } from '../Classes/Teacher';
+import { UserDataService } from '../Services/user-data.service';
 
 @Component({
   selector: 'app-create-a-subject',
@@ -12,13 +13,13 @@ export class CreateASubjectComponent {
 
   teacher1: Teacher[] = [];
 
- constructor(private examService: ExamService) {}
+ constructor(private examService: ExamService, private userDataService: UserDataService) {}
 
  newExam: Exam = {
    id: 0,
    course: '',
    teacher: { 
-    id: 0,
+    id: this.userDataService.getUserData().id,
     firstName: '',
     lastName: '',
     email: '',
@@ -39,5 +40,9 @@ export class CreateASubjectComponent {
        }
      );
  }
+
+ public logout(){
+  this.userDataService.logout();
+}
 
 }

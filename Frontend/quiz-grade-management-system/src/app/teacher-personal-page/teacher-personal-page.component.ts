@@ -4,6 +4,7 @@ import { TeacherService } from '../Services/teacher.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { TeacherDialogComponent } from '../teacher-dialog/teacher-dialog.component';
+import { UserDataService } from '../Services/user-data.service';
 
 @Component({
   selector: 'app-teacher-personal-page',
@@ -14,12 +15,14 @@ export class TeacherPersonalPageComponent implements OnInit {
   teacher: Teacher | null = null;
   firstTeacher: Teacher | null = null;
 
-  constructor(private teacherService: TeacherService, public dialog: MatDialog) {}
-
-  ngOnInit(): void {
-    const teacherId = 1;
-    this.getTeacherById(teacherId);
+  constructor(private teacherService: TeacherService, public dialog: MatDialog, private userDataService: UserDataService) {
+    console.log(this.userDataService.getUserData(), "personal detail");
   }
+
+  ngOnInit() {
+    this.getTeacherById(this.userDataService.getUserData().id);
+  }
+
 
   private getTeacherById(teacherId: number): void {
     this.teacherService.getTeacherById(teacherId).subscribe(
@@ -57,4 +60,8 @@ export class TeacherPersonalPageComponent implements OnInit {
       }
     });
   }
+
+public logout(){
+  this.userDataService.logout();
+}
 }

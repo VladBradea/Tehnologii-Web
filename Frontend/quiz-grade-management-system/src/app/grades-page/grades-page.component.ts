@@ -4,6 +4,7 @@ import { GradeService } from '../Services/grade.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { GradeDialogComponent } from '../grade-dialog/grade-dialog.component';
+import { UserDataService } from '../Services/user-data.service';
 
 @Component({
   selector: 'app-grades-page',
@@ -14,7 +15,7 @@ export class GradesPageComponent implements OnInit{
   allGrades: Grade[] = [];
   grades: Grade[] =  [];
 
-  constructor(private gradeService: GradeService, public dialog: MatDialog){}
+  constructor(private gradeService: GradeService, public dialog: MatDialog, private userDataService: UserDataService){}
 
   ngOnInit(): void {
     this.getGrades();
@@ -52,6 +53,10 @@ export class GradesPageComponent implements OnInit{
         );
       }
     });
+    }
+
+    public logout(){
+      this.userDataService.logout();
     }
 
 }

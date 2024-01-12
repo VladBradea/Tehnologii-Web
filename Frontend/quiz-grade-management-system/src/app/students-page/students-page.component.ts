@@ -4,6 +4,7 @@ import { StudentService } from '../Services/student.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentDialogComponent } from '../student-dialog/student-dialog.component';
+import { UserDataService } from '../Services/user-data.service';
 
 @Component({
   selector: 'app-students-page',
@@ -16,7 +17,7 @@ export class StudentsPageComponent implements OnInit{
   searchText: string = '';
 
   constructor(private studentService: StudentService, 
-    public dialog: MatDialog) {}
+    public dialog: MatDialog,private userDataService: UserDataService) {}
 
   ngOnInit() {
     this.getStudents();
@@ -96,5 +97,9 @@ export class StudentsPageComponent implements OnInit{
         );
       }
     });
+  }
+
+  public logout(){
+    this.userDataService.logout();
   }
 }

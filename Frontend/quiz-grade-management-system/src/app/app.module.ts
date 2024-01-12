@@ -38,6 +38,7 @@ import { StudentFeedbackComponent } from './student-feedback/student-feedback.co
 import { SendFeedbackDialogComponent } from './send-feedback-dialog/send-feedback-dialog.component';
 import { SendCodePageComponent } from './send-code-page/send-code-page.component';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { UserDataService } from './Services/user-data.service';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,7 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
     NgChartsModule,
     CanvasJSAngularChartsModule,
   ],
-  providers: [],
+  providers: [UserDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

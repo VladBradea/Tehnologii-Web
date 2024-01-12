@@ -4,6 +4,7 @@ import { ExercisesService } from '../Services/exercises.service';
 import { HttpErrorResponse, HttpRequest, HttpResponse } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { ExerciseDialogComponent } from '../exercise-dialog/exercise-dialog.component';
+import { UserDataService } from '../Services/user-data.service';
 
 @Component({
   selector: 'app-exercises-page',
@@ -17,7 +18,7 @@ export class ExercisesPageComponent implements OnInit{
    searchText: string = '';
 
   constructor(private exercisesService: ExercisesService,
-    public dialog: MatDialog){}
+    public dialog: MatDialog, private userDataService: UserDataService){}
 
   ngOnInit() {
     this.getExercises();
@@ -96,6 +97,10 @@ export class ExercisesPageComponent implements OnInit{
         );
       }
     });
+  }
+
+  public logout(){
+    this.userDataService.logout();
   }
 
 }
