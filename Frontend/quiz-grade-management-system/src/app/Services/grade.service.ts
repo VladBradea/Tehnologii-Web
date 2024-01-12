@@ -23,8 +23,8 @@ export class GradeService {
     return this.http.get<Grade>(`${this.gradeUrl}id/${gradeId}`);
   }
 
-  public getGradeByExamId(examId: number): Observable<Grade>{
-    return this.http.get<Grade>(`${this.gradeUrl}examId/${examId}`);
+  public getGradeByExamId(examId: number): Observable<Grade[]>{
+    return this.http.get<Grade[]>(`${this.gradeUrl}examId/${examId}`);
   }
 
   public getGradesByStudentId(studentId: number): Observable<Grade[]>{

@@ -54,7 +54,7 @@ export class StatisticsPageComponent implements OnInit {
   viewStats(exam: Exam): void {
     const dialogRef = this.dialog.open(StatsDialogComponent, {
       width: '600px',
-      data: { ...exam }
+      data: { exam }
     });
   }
 }

@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { GradeService } from '../Services/grade.service';
+import { Grade } from '../Classes/Grade';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Exam } from '../Classes/Exam';
 
 @Component({
   selector: 'app-stats-dialog',
@@ -6,10 +10,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./stats-dialog.component.css']
 })
 export class StatsDialogComponent {
-  gradesList = [10, 10, 9, 2, 3, 4, 5, 3, 3, 5, 6, 7, 4, 5];
+
+  gradesList1 = [10, 10, 9, 2, 3, 4, 5, 3, 3, 5, 6, 7, 4, 5];
+
+  constructor(
+    private gradeService: GradeService,
+    public dialogRef: MatDialogRef<StatsDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { exam: Exam, grades: Grade[] }
+  ) {}
+
   chartOptions: any;
+  gradesList: number[] = [];
 
   ngOnInit() {
+    this.getGradesByExamId(this.data.exam.id);
+    
     this.chartOptions = {
       animationEnabled: true,
       theme: "dark2",
@@ -25,6 +40,19 @@ export class StatsDialogComponent {
         dataPoints: this.getGradePercentages()
       }]
     };
+  }
+
+  getGradesByExamId(examId: number): void {
+    this.gradeService.getGradeByExamId(examId).subscribe(
+      (grades: Grade[]) => {
+        console.log('Grades for Exam ID:', examId, grades);
+        this.gradesList = grades.map(grade => grade.value);
+        console.log( this.gradesList);
+      },
+      (error) => {
+        console.error('Error fetching grades:', error);
+      }
+    );
   }
 
   getGradePercentages() {
