@@ -22,6 +22,32 @@
           <label for="examDate">Exam Date:</label>
           <input type="date" id="examDate" name="examDate">
       </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Exercise text</th>
+            <th>Answer</th>
+            <th>Answer</th>
+            <th>Answer</th>
+            <th>Answer</th>
+            <th>Correct answer</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let exercise of exercises">
+            <td>{{ exercise.text }}</td>
+            <td>{{ exercise.option1 }}</td>
+            <td>{{ exercise.option2 }}</td>
+            <td>{{ exercise.option3 }}</td>
+            <td>{{ exercise.option4 }}</td>
+            <td>{{ exercise.answer }}</td>
+            <td>
+              <input type="checkbox"  />
+            </td>
+          </tr>
+        </tbody>
+      </table>
         <button type="submit" class="btn-submit">Create Subject</button>
       </form>
     </div>  

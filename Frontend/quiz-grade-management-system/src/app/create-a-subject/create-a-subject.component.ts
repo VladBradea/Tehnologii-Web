@@ -1,19 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ExamService } from '../Services/exam.service';
 import { Exam } from '../Classes/Exam';
 import { Teacher } from '../Classes/Teacher';
 import { UserDataService } from '../Services/user-data.service';
+import { ExercisesService } from '../Services/exercises.service';
+import { Exercise } from '../Classes/Exercise';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-a-subject',
   templateUrl: './create-a-subject.component.html',
   styleUrls: ['./create-a-subject.component.css']
 })
-export class CreateASubjectComponent {
+export class CreateASubjectComponent implements OnInit{
 
   teacher1: Teacher[] = [];
+  exercises: Exercise[] = [];
 
- constructor(private examService: ExamService, private userDataService: UserDataService) {}
+ constructor(private examService: ExamService, private userDataService: UserDataService, private exercisesService: ExercisesService) {}
+
+  ngOnInit(){
+    this.getExercises();
+  }
+
+  private getExercises(): void{
+    this.exercisesService.getExercises().subscribe(
+      (response: Exercise[])=>{
+        this.exercises = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
 
  newExam: Exam = {
    id: 0,

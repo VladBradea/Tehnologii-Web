@@ -1,3 +1,5 @@
+import { Exam } from "./Exam";
+
 export interface Exercise {
     id: number;
     text: string;
@@ -7,5 +9,7 @@ export interface Exercise {
     option4: string;
     answer: string;
     examId: number;
+
+    exam: Exam;
 
 }
