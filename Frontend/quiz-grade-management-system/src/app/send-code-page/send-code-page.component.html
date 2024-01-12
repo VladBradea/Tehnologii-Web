@@ -1,0 +1,21 @@
+<!-- send-code-page.component.html -->
+
+<div class="container">
+    <h2>Enter Exam Code</h2>
+  
+    <div class="form-group">
+      <label for="examId">Exam ID:</label>
+      <input type="text" id="examId" [(ngModel)]="enteredExamId" class="form-control" placeholder="Enter Exam ID">
+    </div>
+  
+    <button class="btn btn-primary" (click)="checkAndOpenExam()">Take Exam</button>
+  
+    <!-- Display the exam details section -->
+    <div *ngIf="exam">
+      <h3>Exam Details:</h3>
+      <p>ID: {{ exam.id }}</p>
+      <p>Course: {{ exam.course }}</p>
+      <!-- Add more details as needed -->
+    </div>
+  </div>
+  
