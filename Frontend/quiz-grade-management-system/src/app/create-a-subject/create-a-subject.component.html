@@ -16,12 +16,12 @@
         <!-- ... form fields here ... -->
         <div class="form-group">
           <label for="subjectName">Subject Name:</label>
-          <input type="text" id="subjectName" name="subjectName" required>
+          <input type="text" id="subjectName" name="subjectName" [(ngModel)]="newExam.course" required>
         </div>
         <div class="form-group">
           <label for="examDate">Exam Date:</label>
-          <input type="date" id="examDate" name="examDate">
-      </div>
+          <input type="date" id="examDate" name="examDate" [(ngModel)]="newExam.examDate">
+        </div>
       <table>
         <thead>
           <tr>
@@ -43,12 +43,12 @@
             <td>{{ exercise.option4 }}</td>
             <td>{{ exercise.answer }}</td>
             <td>
-              <input type="checkbox"  />
+              <input type="checkbox" [checked]="isSelected(exercise)" (change)="toggleSelection(exercise)" />
             </td>
           </tr>
         </tbody>
       </table>
-        <button type="submit" class="btn-submit">Create Subject</button>
+      <button type="submit" class="btn-submit" (click)="createExam()">Create Subject</button>
       </form>
     </div>  
   </div>

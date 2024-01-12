@@ -8,7 +8,6 @@ export interface Exercise {
     option3: string;
     option4: string;
     answer: string;
-    examId: number;
 
     exam: Exam;
 

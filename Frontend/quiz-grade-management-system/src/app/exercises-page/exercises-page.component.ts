@@ -80,7 +80,7 @@ export class ExercisesPageComponent implements OnInit{
   addExercise(): void {
     const dialogRef = this.dialog.open(ExerciseDialogComponent, {
       width: '600px',
-      data: {}
+      data: { exam: { id: 1 }, text: '', option1: '', option2: '', option3: '', option4: '', answer: '' }
     });
 
     dialogRef.afterClosed().subscribe(result => {

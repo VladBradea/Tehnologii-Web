@@ -16,6 +16,7 @@ export class CreateASubjectComponent implements OnInit{
 
   teacher1: Teacher[] = [];
   exercises: Exercise[] = [];
+  selectedExercises: Exercise[] = [];
 
  constructor(private examService: ExamService, private userDataService: UserDataService, private exercisesService: ExercisesService) {}
 
@@ -49,19 +50,47 @@ export class CreateASubjectComponent implements OnInit{
  };
 
  createExam() {
-   this.examService.createExam(this.newExam)
-     .subscribe(
-       (createdExam: Exam) => {
-         console.log('Exam created successfully:', createdExam);
-       },
-       (error) => {
-         console.error('Error creating exam:', error);
-       }
-     );
- }
+  this.examService.createExam(this.newExam)
+    .subscribe(
+      (createdExam: Exam) => {
+        console.log('Exam created successfully:', createdExam);
+        this.updateSelectedExercises(createdExam.id);
+      },
+      (error) => {
+        console.error('Error creating exam:', error);
+      }
+    );
+}
 
  public logout(){
   this.userDataService.logout();
+}
+
+updateSelectedExercises(examId: number) {
+  this.selectedExercises.forEach(exercise => {
+    exercise.exam.id = examId;
+    this.exercisesService.updateExercise(exercise)
+      .subscribe(
+        (updatedExercise: Exercise) => {
+          console.log('Exercise updated successfully:', updatedExercise);
+        },
+        (error) => {
+          console.error('Error updating exercise:', error);
+        }
+      );
+  });
+}
+
+isSelected(exercise: Exercise): boolean {
+  return this.selectedExercises.includes(exercise);
+}
+
+toggleSelection(exercise: Exercise): void {
+  if (this.isSelected(exercise)) {
+    this.selectedExercises = this.selectedExercises.filter(e => e !== exercise);
+  } else {
+    this.selectedExercises.push(exercise);
+  }
 }
 
 }
