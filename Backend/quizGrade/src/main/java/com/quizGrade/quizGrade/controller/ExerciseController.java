@@ -43,6 +43,12 @@ public class ExerciseController {
         }
     }
 
+    @GetMapping("examId/{eId}")
+    public ResponseEntity<List<Exercise>> getExercisesByExamId (@PathVariable("eId") long examId) {
+        List<Exercise> exercises = exerciseService.getExercisesByExamId(examId);
+        return new ResponseEntity<>(exercises, HttpStatus.OK);
+    }
+
     @PutMapping("id/{id}")
     public ResponseEntity<Exercise> updateExercise(@PathVariable("id") Long id, @RequestBody Exercise exercise) {
         return exerciseService.patchExercise(exercise, id)

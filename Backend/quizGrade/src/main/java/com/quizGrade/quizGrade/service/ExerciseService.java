@@ -26,6 +26,10 @@ public class ExerciseService {
         return exerciseRepository.findById(id);
     }
 
+    public List<Exercise> getExercisesByExamId (long examId) {
+        return exerciseRepository.findByExamId(examId);
+    }
+
     public Exercise updateExercise (Exercise exercise){return exerciseRepository.save(exercise);}
 
     public Optional<Exercise> patchExercise (Exercise exercise, Long id) {
