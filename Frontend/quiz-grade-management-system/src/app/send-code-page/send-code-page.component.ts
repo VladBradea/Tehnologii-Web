@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ExamService } from '../Services/exam.service';
+import { ExercisesService } from '../Services/exercises.service';
 import { Exam } from '../Classes/Exam';
+import { Exercise } from '../Classes/Exercise';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-send-code-page',
@@ -11,30 +14,62 @@ import { Exam } from '../Classes/Exam';
 export class SendCodePageComponent {
   enteredExamId: string = '';
   exam: Exam | null = null;
+  exercises: Exercise[] = [];
 
-  constructor(private examService: ExamService, private router: Router) { }
+  constructor(private examService: ExamService, private exercisesService: ExercisesService) { }
 
   checkAndOpenExam() {
     const enteredIdAsNumber = Number(this.enteredExamId);
     if (!isNaN(enteredIdAsNumber)) {
+      console.log('Fetching exam details...');
       this.examService.getExamById(enteredIdAsNumber).subscribe(
         exam => {
           if (exam) {
+            console.log('Exam details fetched:', exam);
+
             this.exam = exam;
+
+            // Use getExercisesByExamId method to fetch exercises
+            this.tryGetExercisesByExamId(exam.id);
+
           } else {
             console.log('Exam not found');
           }
         },
         error => {
           if (error.status === 302 && error.error) {
+            console.log('Redirected to exam:', error.error);
             this.exam = error.error;
+
+            // Use getExercisesByExamId method to fetch exercises
+            this.tryGetExercisesByExamId(this.exam?.id);
+
+          } else {
+            console.error('Error fetching exam by ID:', error);
           }
-  
         }
       );
     } else {
       console.log('Invalid exam ID format');
     }
   }
-}
 
+  private tryGetExercisesByExamId(examId: number | undefined): void {
+    if (examId !== undefined) {
+      console.log('Fetching exercises...');
+      this.getExercisesByExamId(examId);
+    }
+  }
+
+  private getExercisesByExamId(examId: number): void {
+    this.exercisesService.getExercisesByExamId(examId).subscribe(
+      (exercises: Exercise[]) => {
+        console.log('Exercises fetched:', exercises);
+        this.exercises = exercises;
+      },
+      (error: HttpErrorResponse) => {
+        console.error('Error fetching exercises:', error);
+      }
+    );
+  }
+}

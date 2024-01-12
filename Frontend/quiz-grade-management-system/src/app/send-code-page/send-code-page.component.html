@@ -1,4 +1,4 @@
-<!-- send-code-page.component.html -->
+
 
 <div class="container">
     <h2>Enter Exam Code</h2>
@@ -9,13 +9,22 @@
     </div>
   
     <button class="btn btn-primary" (click)="checkAndOpenExam()">Take Exam</button>
-  
-    <!-- Display the exam details section -->
+
     <div *ngIf="exam">
       <h3>Exam Details:</h3>
       <p>ID: {{ exam.id }}</p>
       <p>Course: {{ exam.course }}</p>
-      <!-- Add more details as needed -->
+    </div>
+  
+    <div *ngIf="exercises.length > 0">
+      <h3>Exercises:</h3>
+      <ul>
+        <li *ngFor="let exercise of exercises">
+          {{ exercise.text }} - {{ exercise.option1 }} - {{ exercise.option2}} - {{ exercise.option3}} - {{ exercise.option4}} - {{ exercise.answer}}
+
+        </li>
+      </ul>
     </div>
   </div>
+
   

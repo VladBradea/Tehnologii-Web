@@ -24,6 +24,10 @@ export class ExercisesService {
     return this.http.get<Exercise>(`${this.exercisesUrl}id/${exerciseId}`);
   }
 
+  public getExercisesByExamId(examId: number): Observable<Exercise[]>{
+    return this.http.get<Exercise[]>(`${this.exercisesUrl}examId/${examId}`);
+  }
+
   public deleteExercise(exerciseId: number): Observable<void>{
     return this.http.delete<void>(`${this.exercisesUrl}id/${exerciseId}`);
   }
