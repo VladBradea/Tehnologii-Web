@@ -39,6 +39,7 @@ import { SendFeedbackDialogComponent } from './send-feedback-dialog/send-feedbac
 import { SendCodePageComponent } from './send-code-page/send-code-page.component';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { UserDataService } from './Services/user-data.service';
+import { StatsDialogComponent } from './stats-dialog/stats-dialog.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { UserDataService } from './Services/user-data.service';
     StudentFeedbackComponent,
     SendFeedbackDialogComponent,
     SendCodePageComponent,
+    StatsDialogComponent,
 
 
   ],
