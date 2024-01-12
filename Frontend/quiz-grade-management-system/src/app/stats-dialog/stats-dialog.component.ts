@@ -11,7 +11,7 @@ import { Exam } from '../Classes/Exam';
 })
 export class StatsDialogComponent {
 
-  gradesList1 = [10, 10, 9, 2, 3, 4, 5, 3, 3, 5, 6, 7, 4, 5];
+  
 
   constructor(
     private gradeService: GradeService,
@@ -21,10 +21,12 @@ export class StatsDialogComponent {
 
   chartOptions: any;
   gradesList: number[] = [];
-
+  
   ngOnInit() {
     this.getGradesByExamId(this.data.exam.id);
-    
+    this.initializeDefaultChartOptions();
+  }
+  initializeChartOptions() {
     this.chartOptions = {
       animationEnabled: true,
       theme: "dark2",
@@ -41,27 +43,32 @@ export class StatsDialogComponent {
       }]
     };
   }
-
-  getGradesByExamId(examId: number): void {
+  private initializeDefaultChartOptions() {
+    this.chartOptions = {
+    };
+  }
+  public getGradesByExamId(examId: number): void {
     this.gradeService.getGradeByExamId(examId).subscribe(
       (grades: Grade[]) => {
         console.log('Grades for Exam ID:', examId, grades);
         this.gradesList = grades.map(grade => grade.value);
-        console.log( this.gradesList);
+        console.log(this.gradesList ,'aray note');
+        this.initializeChartOptions(); // Initialize chart options after data is fetched
       },
       (error) => {
         console.error('Error fetching grades:', error);
       }
     );
-  }
-
-  getGradePercentages() {
+    }
+    
+  
+  public getGradePercentages() {
+    const total = this.gradesList.length; // Use gradesList here
     const gradeCounts = this.gradesList.reduce<{ [key: number]: number }>((acc, grade) => {
       acc[grade] = (acc[grade] || 0) + 1;
       return acc;
     }, {});
-
-    const total = this.gradesList.length;
+    console.log(this.gradesList ,'aray note1');
     return Object.keys(gradeCounts).map(key => {
       const grade = parseInt(key);
       return {

@@ -136,4 +136,9 @@ body {
   button.delete-btn:hover {
     background-color: #d32f2f;
   }
-  
+.form-group{
+  font-size: 18px;
+}
+.input-form{
+  height: 18px;
+}
