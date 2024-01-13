@@ -6,6 +6,7 @@ import { Exam } from '../Classes/Exam';
 import { Exercise } from '../Classes/Exercise';
 import { HttpErrorResponse } from '@angular/common/http';
 import { UserDataService } from '../Services/user-data.service';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-send-code-page',
   templateUrl: './send-code-page.component.html',
@@ -15,7 +16,7 @@ export class SendCodePageComponent {
   enteredExamId: string = '';
   exam: Exam | null = null;
   exercises: Exercise[] = [];
-
+  selectedAnswers: { [key: number]: string } = {};
   constructor(private examService: ExamService, private exercisesService: ExercisesService, private userDataService: UserDataService) { }
 
   checkAndOpenExam() {
@@ -56,7 +57,20 @@ export class SendCodePageComponent {
   public logout(){
     this.userDataService.logout();
   }
+
+  submitExercises(event: Event) {
+    event.preventDefault();
   
+    this.exercises.forEach((exercise, index) => {
+      if (this.selectedAnswers[index] === exercise.answer) {
+        console.log(`Exercise ${index + 1}: Correct`);
+      } else {
+        console.log(`Exercise ${index + 1}: Incorrect`);
+      }
+    });
+  
+    // Additional submission logic here...
+  }
   private tryGetExercisesByExamId(examId: number | undefined): void {
     if (examId !== undefined) {
       console.log('Fetching exercises...');

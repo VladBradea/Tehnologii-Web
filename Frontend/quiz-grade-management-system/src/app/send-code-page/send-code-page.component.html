@@ -1,5 +1,4 @@
-
-  <div class="dark-green-bg page-container" >
+<div class="dark-green-bg page-container">
   <div class="app-title">
     <div>
       <h1>Quiz Grade</h1>
@@ -11,7 +10,7 @@
       <a href="/student-main-page"><button>Back</button></a>
     </div>
   </div>
-<div class="container">
+  <div class="container">
     <h2>Enter Exam Code</h2>
   
     <div class="form-group">
@@ -23,22 +22,31 @@
 
     <div *ngIf="exam">
       <h2>Exam details</h2>
-      <p>ID: {{ exam.id }}
-      Course: {{ exam.course }}</p>
+      <p>ID: {{ exam.id }}</p>
+      <p>Course: {{ exam.course }}</p>
     </div>
-    <div *ngIf="exercises.length > 0">
+    <form *ngIf="exercises.length > 0" (submit)="submitExercises($event)">
       <h3>Exercises:</h3>
-      <ul>
-        <li *ngFor="let exercise of exercises">
-          {{ exercise.text }} 
-          <ul> 
-            <li><input type="checkbox">{{ exercise.option1 }} </li>
-            <li><input type="checkbox">{{ exercise.option2}} </li> 
-            <li><input type="checkbox">{{ exercise.option3}}</li>
-            <li><input type="checkbox">{{ exercise.option4}}</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+      <div *ngFor="let exercise of exercises; let i = index">
+        <p>{{ exercise.text }}</p>
+        <div>
+          <input type="radio" [id]="'exercise-' + i + '-option1'" [name]="'exercise-' + i" [(ngModel)]="selectedAnswers[i]" [value]="exercise.option1">
+          <label [for]="'exercise-' + i + '-option1'">{{ exercise.option1 }}</label>
+        </div>
+        <div>
+          <input type="radio" [id]="'exercise-' + i + '-option2'" [name]="'exercise-' + i" [(ngModel)]="selectedAnswers[i]" [value]="exercise.option2">
+          <label [for]="'exercise-' + i + '-option2'">{{ exercise.option2 }}</label>
+        </div>
+        <div>
+          <input type="radio" [id]="'exercise-' + i + '-option3'" [name]="'exercise-' + i" [(ngModel)]="selectedAnswers[i]" [value]="exercise.option3">
+          <label [for]="'exercise-' + i + '-option3'">{{ exercise.option3 }}</label>
+        </div>
+        <div>
+          <input type="radio" [id]="'exercise-' + i + '-option4'" [name]="'exercise-' + i" [(ngModel)]="selectedAnswers[i]" [value]="exercise.option4">
+          <label [for]="'exercise-' + i + '-option4'">{{ exercise.option4 }}</label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Answers</button>
+    </form>
   </div>
 </div>
