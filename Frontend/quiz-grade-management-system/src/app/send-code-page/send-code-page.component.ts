@@ -9,6 +9,8 @@ import { UserDataService } from '../Services/user-data.service';
 import { FormsModule } from '@angular/forms';
 import { GradeService } from '../Services/grade.service';
 import { Grade } from '../Classes/Grade';
+import { MatDialog } from '@angular/material/dialog';
+import { ViewGradeDialogComponent } from '../view-grade-dialog/view-grade-dialog.component';
 @Component({
   selector: 'app-send-code-page',
   templateUrl: './send-code-page.component.html',
@@ -19,7 +21,7 @@ export class SendCodePageComponent {
   exam: Exam | null = null;
   exercises: Exercise[] = [];
   selectedAnswers: { [key: number]: string } = {};
-  constructor(private examService: ExamService, private exercisesService: ExercisesService, private userDataService: UserDataService, private gradeService: GradeService) { }
+  constructor(private examService: ExamService, private exercisesService: ExercisesService, private userDataService: UserDataService, private gradeService: GradeService, private dialog: MatDialog) { }
 
   checkAndOpenExam() {
     const enteredIdAsNumber = Number(this.enteredExamId);
@@ -94,18 +96,32 @@ export class SendCodePageComponent {
     this.gradeService.createGrade(newGrade).subscribe(
       createdGrade => {
         console.log('Grade created successfully:', createdGrade);
-        // Additional logic if needed
+        this.openGradeDialog(createdGrade);
       },
       error => {
         console.error('Error creating grade:', error);
-        // Handle error if needed
       }
     );
   }else {
     console.error('Error: Exam or Student information is missing');
     // Handle missing exam or student information
   }
+
 }
+
+private openGradeDialog(grade: Grade): void {
+  // Open the dialog with GradeDialogComponent
+  const dialogRef = this.dialog.open(ViewGradeDialogComponent, {
+    data: { grade }, // Pass the grade to the dialog
+  });
+
+  // You can subscribe to dialog close events if needed
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('Dialog closed:', result);
+    // Additional logic after dialog close
+  });
+}
+
   private tryGetExercisesByExamId(examId: number | undefined): void {
     if (examId !== undefined) {
       console.log('Fetching exercises...');
