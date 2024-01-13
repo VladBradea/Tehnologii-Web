@@ -1,5 +1,16 @@
 
-
+  <div class="dark-green-bg page-container" >
+  <div class="app-title">
+    <div>
+      <h1>Quiz Grade</h1>
+      <h1>Management</h1>
+      <h1>System</h1>
+    </div>
+    <div class="title-buttons">
+      <a href="/quizGrade" (click)="logout()"><button>Logout</button></a>
+      <a href="/student-main-page"><button>Back</button></a>
+    </div>
+  </div>
 <div class="container">
     <h2>Enter Exam Code</h2>
   
@@ -11,20 +22,23 @@
     <button class="btn btn-primary" (click)="checkAndOpenExam()">Take Exam</button>
 
     <div *ngIf="exam">
-      <h3>Exam Details:</h3>
-      <p>ID: {{ exam.id }}</p>
-      <p>Course: {{ exam.course }}</p>
+      <h2>Exam details</h2>
+      <p>ID: {{ exam.id }}
+      Course: {{ exam.course }}</p>
     </div>
-  
     <div *ngIf="exercises.length > 0">
       <h3>Exercises:</h3>
       <ul>
         <li *ngFor="let exercise of exercises">
-          {{ exercise.text }} - {{ exercise.option1 }} - {{ exercise.option2}} - {{ exercise.option3}} - {{ exercise.option4}} - {{ exercise.answer}}
-
+          {{ exercise.text }} 
+          <ul> 
+            <li><input type="checkbox">{{ exercise.option1 }} </li>
+            <li><input type="checkbox">{{ exercise.option2}} </li> 
+            <li><input type="checkbox">{{ exercise.option3}}</li>
+            <li><input type="checkbox">{{ exercise.option4}}</li>
+          </ul>
         </li>
       </ul>
     </div>
   </div>
-
-  
+</div>

@@ -5,7 +5,7 @@ import { ExercisesService } from '../Services/exercises.service';
 import { Exam } from '../Classes/Exam';
 import { Exercise } from '../Classes/Exercise';
 import { HttpErrorResponse } from '@angular/common/http';
-
+import { UserDataService } from '../Services/user-data.service';
 @Component({
   selector: 'app-send-code-page',
   templateUrl: './send-code-page.component.html',
@@ -16,7 +16,7 @@ export class SendCodePageComponent {
   exam: Exam | null = null;
   exercises: Exercise[] = [];
 
-  constructor(private examService: ExamService, private exercisesService: ExercisesService) { }
+  constructor(private examService: ExamService, private exercisesService: ExercisesService, private userDataService: UserDataService) { }
 
   checkAndOpenExam() {
     const enteredIdAsNumber = Number(this.enteredExamId);
@@ -53,7 +53,10 @@ export class SendCodePageComponent {
       console.log('Invalid exam ID format');
     }
   }
-
+  public logout(){
+    this.userDataService.logout();
+  }
+  
   private tryGetExercisesByExamId(examId: number | undefined): void {
     if (examId !== undefined) {
       console.log('Fetching exercises...');
