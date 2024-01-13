@@ -16,6 +16,7 @@ export class SignupPageComponent {
   email: string = '';
   password: string = '';
   accountType: string = 'teacher';
+  signupSuccessMessage: string = '';
 
   constructor(
     private router: Router,
@@ -29,7 +30,8 @@ export class SignupPageComponent {
       this.teacherService.createTeacher(teacher).subscribe(
         createdTeacher => {
           console.log('Teacher account created:', createdTeacher);
-          this.router.navigate(['/teacher-page']);
+          this.signupSuccessMessage = 'Teacher account created successfully!';
+          this.router.navigate(['/login-page']);
         },
         error => {
           console.error('Error creating teacher account:', error);
@@ -40,7 +42,8 @@ export class SignupPageComponent {
       this.studentService.createStudent(student).subscribe(
         createdStudent => {
           console.log('Student account created:', createdStudent);
-          this.router.navigate(['/teacher-page']);
+          this.signupSuccessMessage = 'Student account created successfully!';
+          this.router.navigate(['/login-page']);
         },
         error => {
           console.error('Error creating student account:', error);

@@ -31,8 +31,13 @@
             </div>
             <button type="submit">Sign Up</button>
         </form>
+        
+
         <div class="options">
             <p>Already have an account? <a href="/login-page">Login</a></p>
+        </div>
+        <div *ngIf="signupSuccessMessage" class="success-message">
+            {{ signupSuccessMessage }}
         </div>
     </div>
 </body>

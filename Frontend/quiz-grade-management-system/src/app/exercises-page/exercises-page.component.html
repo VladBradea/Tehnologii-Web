@@ -20,6 +20,7 @@
     <table>
       <thead>
         <tr>
+          <th>Subject</th>
           <th>Exercise text</th>
           <th>Answer</th>
           <th>Answer</th>
@@ -31,6 +32,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let exercise of exercises">
+          <td>{{ exercise.subject}}</td>
           <td>{{ exercise.text }}</td>
           <td>{{ exercise.option1 }}</td>
           <td>{{ exercise.option2 }}</td>

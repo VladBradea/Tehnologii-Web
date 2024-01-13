@@ -38,7 +38,7 @@ export class ExercisesPageComponent implements OnInit{
 
   filterExercises() {
     this.exercises = this.allExercises.filter(exercise =>
-      (exercise.text.toLowerCase()).includes(this.searchText.toLowerCase())
+      (exercise.subject.toLowerCase()).includes(this.searchText.toLowerCase())
     );
   }
 
