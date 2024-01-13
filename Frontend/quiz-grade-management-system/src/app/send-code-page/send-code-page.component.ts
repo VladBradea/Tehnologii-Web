@@ -61,15 +61,23 @@ export class SendCodePageComponent {
   submitExercises(event: Event) {
     event.preventDefault();
   
+    let correctAnswersCount = 0;
+  
     this.exercises.forEach((exercise, index) => {
       if (this.selectedAnswers[index] === exercise.answer) {
         console.log(`Exercise ${index + 1}: Correct`);
+        correctAnswersCount++;
       } else {
         console.log(`Exercise ${index + 1}: Incorrect`);
       }
     });
   
+    // Calculate the grade
+    const grade = (correctAnswersCount / this.exercises.length) * 10;
+    console.log(`Grade: ${grade.toFixed(2)}`);
+  
     // Additional submission logic here...
+    // For example, you might want to save this grade or display it to the user.
   }
   private tryGetExercisesByExamId(examId: number | undefined): void {
     if (examId !== undefined) {
