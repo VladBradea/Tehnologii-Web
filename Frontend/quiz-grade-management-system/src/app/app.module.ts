@@ -40,6 +40,7 @@ import { SendCodePageComponent } from './send-code-page/send-code-page.component
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { UserDataService } from './Services/user-data.service';
 import { StatsDialogComponent } from './stats-dialog/stats-dialog.component';
+import { ViewGradeDialogComponent } from './view-grade-dialog/view-grade-dialog.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { StatsDialogComponent } from './stats-dialog/stats-dialog.component';
     SendFeedbackDialogComponent,
     SendCodePageComponent,
     StatsDialogComponent,
+    ViewGradeDialogComponent,
 
 
   ],
