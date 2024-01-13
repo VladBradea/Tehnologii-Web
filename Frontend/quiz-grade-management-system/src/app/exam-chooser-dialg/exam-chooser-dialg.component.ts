@@ -10,39 +10,12 @@ import { Student } from '../Classes/Student';
   styleUrls: ['./exam-chooser-dialg.component.css']
 })
 export class ExamChooserDialgComponent {
-  exams: Exam[] = [];
-  selectedCourse: Exam [] = [];
-  selectedStudents: Student[] = [];
-
   constructor(
     public dialogRef: MatDialogRef<ExamChooserDialgComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private examService: ExamService
-  ) {
-    this.exams = data.exams;
-    this.selectedStudents = data.selectedStudents;
-  }
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
 
-  getExams(): void {
-    this.examService.getExams().subscribe(
-      (exams: Exam[]) => {
-        this.exams = exams;
-      },
-      (error) => {
-        console.error('Error fetching exams:', error);
-      }
-    );
-  }
-
-  sendSelectedExam(): void {
-    if (this.selectedCourse) {
-      console.log('Selected Exam:', this.selectedCourse);
-      console.log('Selected Students:', this.selectedStudents);
-       
-      
-      this.dialogRef.close({ selectedExam: this.selectedCourse, selectedStudents: this.selectedStudents });
-    } else {
-      console.log('No exam selected');
-    }
+  onClose(): void {
+    this.dialogRef.close();
   }
 }

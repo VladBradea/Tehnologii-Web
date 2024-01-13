@@ -15,14 +15,12 @@ import { UserDataService } from '../Services/user-data.service';
 })
 export class ExamsPageComponent implements OnInit{
   exams: Exam[] = [];
-  students: Student[] = [];
-  selectedStudents: Student[] = [];
 
-  constructor(private examService: ExamService, private studentService: StudentService, private dialog: MatDialog, private userDataService: UserDataService) {}
+
+  constructor(private examService: ExamService, private dialog: MatDialog, private userDataService: UserDataService) {}
 
   ngOnInit() {
     this.getExams();
-    this.getStudents();
   }
 
   public getExams(): void {
@@ -36,48 +34,28 @@ export class ExamsPageComponent implements OnInit{
     );
   }
 
-  public getStudents(): void {
-    this.studentService.getStudents().subscribe(
-      (response: Student[]) => {
-        this.students = response;
+  public viewCode(examId: number): void {
+    const dialogRef = this.dialog.open(ExamChooserDialgComponent, {
+      width: '600px',
+      height: '400px',
+      data: { examId }
+    });
+  }
+
+  public deleteExam(examId: number){
+    this.examService.deleteExam(examId).subscribe(
+      () => {
+        this.exams = this.exams.filter(exam => exam.id !== examId);
+        console.log('Exercise deleted successfully.');
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        console.error('Error deleting exercise:', error.message);
       }
     );
   }
 
-  public toggleSelection(student: Student): void {
-    if (this.isSelected(student)) {
-      this.selectedStudents = this.selectedStudents.filter((s) => s !== student);
-    } else {
-      this.selectedStudents.push(student);
-    }
-  }
+ 
 
-  public isSelected(student: Student): boolean {
-    return this.selectedStudents.includes(student);
-  }
-
-  public sendExam(): void {
-    const dialogRef = this.dialog.open(ExamChooserDialgComponent, {
-      data: {
-        exams: this.exams,
-        selectedStudents: this.selectedStudents
-      }
-    });
-  
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        console.log('Selected Exam:', result.selectedExam);
-        console.log('Selected Students:', result.selectedStudents);
-       //
-
-      } else {
-        console.log('Dialog closed without selection');
-      }
-    });
-  }
 
   public logout(){
     this.userDataService.logout();

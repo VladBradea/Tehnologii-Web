@@ -11,21 +11,21 @@
     </div>
   </div>
   <div class="container">
-    <button (click)="sendExam()">Send Exam</button>
     <table>
       <thead>
         <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Select</th>
+          <th>Exam name</th>
+          <th>Date</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let student of students">
-          <td>{{ student.firstName }}</td>
-          <td>{{ student.lastName }}</td>
+        <tr *ngFor="let exam of exams">
+          <td>{{ exam.course }}</td>
+          <td>{{ exam.examDate }}</td>
           <td>
-            <input type="checkbox" (change)="toggleSelection(student)" />
+            <a><button class="table-edit" (click)="viewCode(exam.id)"><mat-icon class="add-icon">edit</mat-icon>Show code</button></a>
+            <a><button class="table-delete delete-btn" (click)="deleteExam(exam.id)"><mat-icon class="add-icon">delete</mat-icon>Delete</button></a>
           </td>
         </tr>
       </tbody>
