@@ -125,19 +125,31 @@ button.delete-btn:hover {
 }
 
 .student-info {
-  flex-grow: 1;
+  background-color: #FFF8C9; /* Light ivory background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); /* Subtle shadow for depth */
+  max-width: 400px; /* Maximum width */
+  
+  padding: 20px; /* Padding inside the card */
+  font-family: Arial, sans-serif; /* Font style */
 }
+
+/*
+.student-info {
+  flex-grow: 1;
+}*/
+
 .student-info-card {
-  background-color: #fff; /* Card background */
+  background-color: #FFF8C9; /* Card background */
   color: #000; /* Text color */
   padding: 20px; /* Padding inside the card */
   border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
-  margin-left: 25px; /* Distance from the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0); /* Shadow effect */
   width: fit-content;
 }
 
 
-.student-info-card .h2{
-  font-size: 18px;
-}
+  .student-info-card .h2 {
+    background-color: #FFF8C9;
+    font-size: 18px;
+  }

@@ -1,0 +1,65 @@
+dialog-container {
+  background-color: #FFF8C9; /* Light ivory color for the dialog background */
+  border-radius: 10px; /* Rounded corners for the dialog box */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* Dialog Title */
+mat-dialog-title {
+  background-color: #FFF8C9;
+  color: #333; /* Dark text for the title for better readability */
+  font-size: 24px; /* Slightly larger font size for the title */
+  margin-bottom: 20px; /* Spacing below the title */
+}
+
+/* Dialog Content */
+mat-dialog-content {
+  background-color: #FFF8C9;
+  font-family: Arial, sans-serif; /* Consistent font throughout the dialog */
+  padding: 20px; /* Padding around the content for spacing */
+}
+
+/* Form Elements */
+form label {
+  display: block; /* Ensure labels appear above inputs */
+  margin-top: 10px; /* Spacing above each label */
+  font-weight: bold; /* Bold font for labels */
+}
+
+form input[type="text"],
+form input[type="email"] {
+  width: 100%; /* Full width inputs */
+  padding: 8px; /* Padding inside inputs */
+  margin-top: 5px; /* Spacing between label and input */
+  border: 1px solid #ccc; /* Subtle border around inputs */
+  border-radius: 4px; /* Rounded corners for inputs */
+}
+
+/* Button Styles */
+mat-dialog-actions {
+  display: flex; /* Use flexbox for button alignment */
+  justify-content: flex-end; /* Align buttons to the right */
+  padding: 20px; /* Padding around the button area */
+}
+
+button[mat-button] {
+  padding: 10px 20px; /* Padding inside buttons */
+  margin-left: 10px; /* Spacing between buttons */
+  border: none; /* Remove default borders */
+  border-radius: 4px; /* Rounded corners for buttons */
+  color: #fff; /* White text for buttons */
+  font-weight: bold; /* Bold font for button text */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+  /* Cancel Button Style */
+  button[mat-button]:nth-child(1) {
+    background-color: #D21502; /* Red background for cancel button */
+  }
+
+  /* Save Button Style */
+  button[mat-button]:nth-child(2) {
+    background-color: #217666; /* Teal background for save button */
+  }
+
+/* Additional styles like hover effects can be added as well */
