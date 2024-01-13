@@ -18,4 +18,23 @@ form {
   .mat-dialog-content {
     max-width: 400px; 
   }
-  
+
+button[mat-button] {
+  padding: 10px 20px; /* Padding inside buttons */
+  margin-left: 10px; /* Spacing between buttons */
+  border: none; /* Remove default borders */
+  border-radius: 4px; /* Rounded corners for buttons */
+  color: #fff; /* White text for buttons */
+  font-weight: bold; /* Bold font for button text */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+  /* Cancel Button Style */
+  button[mat-button]:nth-child(1) {
+    background-color: #D21502; /* Red background for cancel button */
+  }
+
+  /* Save Button Style */
+  button[mat-button]:nth-child(2) {
+    background-color: #217666; /* Teal background for save button */
+  }
