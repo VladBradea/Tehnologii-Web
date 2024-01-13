@@ -3,11 +3,12 @@ import { Student } from "./Student";
 
 export interface Grade {
     id: number;
-    value: number;
+    value: number; 
+    student: Student;
+    exam: Exam;
+
     exam_id: number;
     student_id: number;
     average: number;
-
-    student: Student;
-    exam: Exam;
 }
+   
