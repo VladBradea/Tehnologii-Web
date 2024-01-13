@@ -56,6 +56,9 @@ public class ExerciseService {
                    if (exercise.getExam() != null) {
                        existingExercise.setExam(exercise.getExam());
                    }
+                   if (exercise.getSubject() != null) {
+                       existingExercise.setSubject(exercise.getSubject());
+                   }
 
                    return exerciseRepository.save(existingExercise);
                 });

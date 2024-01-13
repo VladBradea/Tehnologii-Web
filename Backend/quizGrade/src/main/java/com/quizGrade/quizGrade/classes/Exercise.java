@@ -24,6 +24,8 @@ public class Exercise {
     private String option4;
     @Column
     private String answer;
+    @Column
+    private String subject;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "exam_id")
     @OnDelete(action = OnDeleteAction.NO_ACTION)
@@ -31,31 +33,34 @@ public class Exercise {
     @Nullable
     private Exam exam;
 
-    public Exercise(String text, String option1,String option2,String option3,String option4){
+    public Exercise(String text, String option1,String option2,String option3,String option4, String subject){
         this.text = text;
         this.option1 = option1;
         this.option2 = option2;
         this.option3 = option3;
         this.option4 = option4;
+        this.subject = subject;
     }
 
-    public Exercise(String text, String option1, String option2, String option3, String option4, String answer, Exam exam) {
+    public Exercise(String text, String option1, String option2, String option3, String option4, String answer, String subject,Exam exam) {
         this.text = text;
         this.option1 = option1;
         this.option2 = option2;
         this.option3 = option3;
         this.option4 = option4;
         this.answer = answer;
+        this.subject = subject;
         this.exam = exam;
     }
 
-    public Exercise(String text, String option1, String option2, String option3, String option4, String answer){
+    public Exercise(String text, String option1, String option2, String option3, String option4, String  subject, String answer){
         this.text = text;
         this.option1 = option1;
         this.option2 = option2;
         this.option3 = option3;
         this.option4 = option4;
         this.answer = answer;
+        this.subject = subject;
     }
 
     public Exercise() {
@@ -116,6 +121,14 @@ public class Exercise {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
     public Exam getExam() {
