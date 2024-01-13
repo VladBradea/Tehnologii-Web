@@ -113,6 +113,7 @@ private openGradeDialog(grade: Grade): void {
   // Open the dialog with GradeDialogComponent
   const dialogRef = this.dialog.open(ViewGradeDialogComponent, {
     data: { grade }, // Pass the grade to the dialog
+    disableClose: true
   });
 
   // You can subscribe to dialog close events if needed
@@ -120,6 +121,7 @@ private openGradeDialog(grade: Grade): void {
     console.log('Dialog closed:', result);
     // Additional logic after dialog close
   });
+
 }
 
   private tryGetExercisesByExamId(examId: number | undefined): void {
