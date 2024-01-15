@@ -1,0 +1,38 @@
+.dialog-box {
+    background-color: #ffffff; /* White background for the dialog */
+    color: #333333; /* Dark text for readability */
+    padding: 20px; /* Padding around the content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* A subtle shadow for depth */
+    max-width: 400px; /* Maximum width of the dialog */
+    margin: auto; /* Centering the dialog in the page */
+    text-align: center; /* Center text alignment for the content */
+  }
+  
+  .dialog-box h2 {
+    margin-top: 0; /* Remove the top margin of the heading */
+    margin-bottom: 30px; /* Space after the heading */
+    font-size: 24px; /* Slightly larger font size for the heading */
+  }
+  
+  .dialog-box button {
+    background-color: #3498db; /* A blue background for the buttons */
+    color: #ffffff; /* White text for the buttons */
+    padding: 10px 20px; /* Padding inside the buttons */
+    margin: 10px; /* Margin around the buttons */
+    border: none; /* No border for a modern look */
+    border-radius: 4px; /* Rounded corners for the buttons */
+    cursor: pointer; /* Cursor to indicate it's clickable */
+    font-size: 16px; /* Font size for button text */
+    transition: background-color 0.3s ease; /* Smooth transition for button hover effect */
+  }
+  
+  .dialog-box button:hover {
+    background-color: #1d68a7; /* Darker blue background on hover */
+  }
+  
+.dialog-buttons-container {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    gap: 10px; /* Space between buttons */
+}

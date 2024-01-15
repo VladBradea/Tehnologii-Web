@@ -1,125 +1,85 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-image: url('media/background.gif');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  margin: 0;
-  padding: 0;
-}
-
-.openai-header {
-  background-color: transparent;
-  color: white;
-  padding: 10px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-}
-
-.openai-header nav ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-}
-
-.openai-header .nav-menu {
-  list-style: none;
-  display: flex;
-}
-
-.openai-header nav a {
-  text-decoration: none;
-  color: white;
-  border: 1px solid white;
-  padding: 10px 20px; /* Increase padding for a larger button */
-  border-radius: 5px;
-  background-color: #89b989;
-  margin-right: 15px; /* Increase margin for additional spacing */
-}
-
-.openai-header .nav-menu li 
-{
-  margin-top: 10px;
-  margin-left: 15px; /* Increase margin for additional spacing between buttons */
-}
-
-.openai-header .nav-menu .spacer{
-  width:900px;
-}
-.openai-header nav a:hover {
-  background-color: #32CD32;
-  color: #1e1e1e;
-}
-
-.openai-header .right {
-  margin-right: 25px;
-}
-
-.openai-footer {
-  background-color: #1e1e1e;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-
-/* Animated background */
-.animated-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+body, html {
   height: 100%;
-  background: linear-gradient(45deg, #333333, #3CA74D);
-  background-size: 400% 400%;
-  animation: backgroundAnimation 10s infinite;
-  z-index: -1; /* Push the background to the back */
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
 }
 
-@keyframes backgroundAnimation {
-  0% {
-      background-position: 0% 50%;
-  }
-  50% {
-      background-position: 100% 50%;
-  }
-  100% {
-      background-position: 0% 50%;
-  }
+.wrapper {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
-.content-container {
-  background-color: #e9010100; /* Gray background color */
+.page-header {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  justify-content: center;
+  position: relative;
+}
+.content-center {
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
-.content {
-  text-align: center; /* Center the content within the container */
-  padding: 20px;
-  background-color: rgba(255, 247, 247, 0.478); /* Set the background color of the content to white */
-  z-index: 1; /* Bring the content to the front */
-  max-width: 800px; /* Set a maximum width for the content */
-  width: 100%; /* Ensure the content expands to fill the container vertically */
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  /* Adjust size accordingly */
+  width: 120px; 
+  margin-bottom: 20px;
+}
+
+.presentation-title {
+  font-size: 4.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 20px;
+}
+.fog-low img {
+  width: 100%;
+}
+.fog-low.right {
+  margin-left: 30%;
+  opacity: 1;
+}
+.top-right-buttons {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  z-index: 3;
+  font-size: 40px;
+}
+
+#loginButton, #registerButton {
+  padding: 10px 20px;
+  margin-left: 25px;
+  background-color: rgba(255, 255, 255, 0.24); /* semi-transparent white */
+  border: 1px solid #dddddd00;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #fff;
+}
+#loginButton a, #registerButton a {
+  color: #fff; /* Set text color to white */
+  text-decoration: none; /* Removes text decoration */
+  display: block; /* Makes the entire button area clickable */
+}
+#loginButton a:hover, #registerButton a:hover,
+#loginButton a:focus, #registerButton a:focus {
+  color: #fff; /* Keeps text color white */
+  text-decoration: none; /* Ensures text decoration is not added */
 }

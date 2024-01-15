@@ -1,4 +1,7 @@
-<h2>Grade: {{ data.grade.value.toFixed(2) }}</h2>
-
-<button mat-button (click)="logout()">Logout</button>
-<button mat-button (click)="backToMenu()">Back to Menu</button>
+<div class="dialog-box">
+    <h2>Your grade: {{ data.grade.value.toFixed(2) }}</h2>
+    <div class="dialog-buttons-container">
+      <button mat-button (click)="logout()">Logout</button>
+      <button mat-button (click)="backToMenu()">Back to Menu</button>
+    </div>
+  </div>
