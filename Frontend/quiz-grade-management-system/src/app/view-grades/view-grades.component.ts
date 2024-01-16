@@ -6,6 +6,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { SendFeedbackDialogComponent } from '../send-feedback-dialog/send-feedback-dialog.component';
 import { Feedback } from '../Classes/Feedback';
 import { FeedbackService } from '../Services/feedback.service';
+import { UserDataService } from '../Services/user-data.service';
+
 
 @Component({
   selector: 'app-view-grades',
@@ -15,10 +17,10 @@ import { FeedbackService } from '../Services/feedback.service';
 export class ViewGradesComponent implements OnInit{
   grades: Grade[] = [];
 
-  constructor(private gradeService: GradeService, public dialog: MatDialog, private feedbackService: FeedbackService) {}
+  constructor(private gradeService: GradeService, public dialog: MatDialog, private feedbackService: FeedbackService, private userDataService: UserDataService) {}
 
   ngOnInit(): void {
-    this.getGradesByStudentId(2); 
+    this.getGradesByStudentId(this.userDataService.getUserData().id); 
   }
 
   public getGradesByStudentId(studentId: number): void {
@@ -56,5 +58,8 @@ export class ViewGradesComponent implements OnInit{
         );
       }
     });
+  }
+  public logout(){
+    this.userDataService.logout();
   }
 }

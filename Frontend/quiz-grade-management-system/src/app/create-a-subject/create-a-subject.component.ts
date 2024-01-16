@@ -17,6 +17,8 @@ export class CreateASubjectComponent implements OnInit{
   teacher1: Teacher[] = [];
   exercises: Exercise[] = [];
   selectedExercises: Exercise[] = [];
+  allExercises: Exercise[]= [];
+  searchText: string = '';
 
  constructor(private examService: ExamService, private userDataService: UserDataService, private exercisesService: ExercisesService) {}
 
@@ -24,14 +26,23 @@ export class CreateASubjectComponent implements OnInit{
     this.getExercises();
   }
 
-  private getExercises(): void{
+ 
+
+  public getExercises(): void{
     this.exercisesService.getExercises().subscribe(
       (response: Exercise[])=>{
-        this.exercises = response;
+        this.allExercises = response;
+        this.exercises = [...this.allExercises];
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
+    );
+  }
+
+  filterExercises() {
+    this.exercises = this.allExercises.filter(exercise =>
+      (exercise.subject.toLowerCase()).startsWith(this.searchText.toLowerCase())
     );
   }
 

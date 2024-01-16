@@ -21,9 +21,14 @@
           <label for="examDate">Exam Date:</label>
           <input type="date" id="examDate" name="examDate" [(ngModel)]="newExam.examDate">
         </div>
+       
+          <label for="searchText">Search by subject:</label>
+          <input type="text" id="searchText" name="searchText" [(ngModel)]="searchText" (input)="filterExercises()" />
+        
       <table>
         <thead>
           <tr>
+            <th>Subject</th>
             <th>Exercise text</th>
             <th>Answer</th>
             <th>Answer</th>
@@ -35,6 +40,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let exercise of exercises">
+            <td>{{ exercise.subject }}</td>
             <td>{{ exercise.text }}</td>
             <td>{{ exercise.option1 }}</td>
             <td>{{ exercise.option2 }}</td>
@@ -47,7 +53,7 @@
           </tr>
         </tbody>
       </table>
-      <button type="submit" class="btn-submit" (click)="createExam()">Create Subject</button>
+      <button (click)="createExam()">Create Subject</button>
       </form>
     </div>  
   </div>
